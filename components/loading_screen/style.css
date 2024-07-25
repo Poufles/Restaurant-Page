@@ -16,11 +16,6 @@ body {
     position: relative;
 }
 
-svg {
-    height: 30px;
-    width: 30px;
-}
-
 .wrapper-loading-screen {
     width: 100%;
     overflow: hidden;
@@ -48,7 +43,7 @@ svg {
     justify-content: center;
 }
 
-.loading-screen svg {
+.loading-screen .strip svg {
     fill: #8B3F3F;
     height: 120px;
     width: 120px;
@@ -59,11 +54,11 @@ svg {
     font-size: 2.5rem;
 }
 
-.loading-strip {
+.loading_strip {
     animation: loading_strip 4s ease-in-out var(--_strip-delay);
 }
 
-.coffee-bounce {
+.coffee_bounce {
     animation: coffee_bounce 1.1s ease-in-out 1.7s;
 }
 

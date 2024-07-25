@@ -1,8 +1,6 @@
 // Import utilities
 @import './config';
-
-// Import components
-@import './component-loading';
+@import './utility';
 
 // Import animations
 @import './animation';
@@ -12,6 +10,7 @@
 @import './component-navbar';
 
 body {
+    background-color: $primary-color;
     position: relative;
 }
 
@@ -42,9 +41,15 @@ svg {
     object-fit: cover;
     height: 100%;
     width: 100%;
+    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
+    transition: 0.3s;
+}
+
+.side.left>.feature.active {
+    opacity: 1;
 }
 
 .side.left .featured-bubble {
@@ -174,11 +179,25 @@ svg {
     z-index: -1;
 }
 
+.side .texture-overlay {
+    background-image: url(../assets/pexels-janakukebal-6496463.jpg);
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .side .container-social {
     display: flex;
     gap: 13px;
     align-items: center;
     justify-content: right;
+}
+
+.side .container-social a {
+    z-index: 1;
 }
 
 .side .container-social svg {
@@ -194,14 +213,17 @@ svg {
 .side .container-title {
     transform: translate(-50%, -50%);
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
 }
 
 .side .container-title .title {
-    font-size: 10rem;
-    height: 95px;
+    color: $dark-text_color;
+    font-family: $font-stack-accent;
+    font-size: 15rem;
     text-transform: capitalize;
+    text-shadow: 4px 4px $accent-color;
+    transform: rotate(-3deg);
     position: relative;
 }
 
@@ -209,9 +231,10 @@ svg {
     content: 'Life in a Cup';
     font-size: 2rem;
     width: max-content;
+    text-shadow: 1px 1px $accent-color;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 73%;
+    right: 5%;
 }
 
 .side .container-rights {

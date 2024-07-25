@@ -1,6 +1,7 @@
 const loading = function () {
     let component;
 
+    // Create SVG function
     const createCoffeeSVG = () => {
         // Please note that this svg is taken from  https://www.iconfinder.com
 
@@ -34,6 +35,7 @@ const loading = function () {
         return svg;
     }
 
+    // Create component function
     const createComponent = () => {
         const wrapperScreen = document.createElement('div');
         const loadingScreen = document.createElement('div');
@@ -73,23 +75,29 @@ const loading = function () {
 
         // Add element to component variable
         component = wrapperScreen; 
-        document.querySelector('body').appendChild(wrapperScreen)
+        document.querySelector('body').prepend(wrapperScreen)
     };
 
+    // Get component function
     const getComponent = () => component;
 
+    // Play animation function
     const playAnimation = () => {
         const wrapper = component;
         const strips = wrapper.querySelectorAll('.strip');
         const coffeSVG = wrapper.querySelector('svg');
 
+        // Adding animation classes
+        wrapper.classList.add('active');
         wrapper.classList.add('loading_strip');
         strips.forEach(strip => {
             strip.classList.add('loading_strip');
         });
         coffeSVG.classList.add('coffee_bounce')
         
+        // Removing animation classes
         setTimeout(() => {
+            wrapper.classList.remove('active');
             wrapper.classList.remove('loading_strip');
             strips.forEach(strip => {
                 strip.classList.remove('loading_strip');
@@ -104,3 +112,5 @@ const loading = function () {
         playAnimation,
     };
 }();
+
+export default loading
