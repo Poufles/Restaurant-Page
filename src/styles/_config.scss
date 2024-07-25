@@ -1,0 +1,33 @@
+// Import font(s)
+@import url('https://fonts.cdnfonts.com/css/afacad');
+@import url('https://fonts.cdnfonts.com/css/lathic');
+
+// Configure root
+:root {
+    font-family: 'Afacad', sans-serif;
+}
+
+// Reset boxes
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Variables ===================
+
+// Colors
+$primary-color: #c99c83;
+$secondary-color: #FFFDD0;
+$accent-color: #8B3F3F;
+$main-gradient: radial-gradient(circle at top left, #FFFDD0 50%, #d1c392 70%, #a18c61 90%);
+$main-gradient-alt: radial-gradient(circle at top center, #c99c83 50%, #b88367 70%, #a35e5e 90%);
+$light-text_color: #FFFAF1;
+$dark-text_color: #101015;
+
+// Fonts
+$font-stack-main: 'Afacad', sans-serif;
+$font-stack-sub: 'Lathic', sans-serif;
+                                                
+
+// Variables ===================

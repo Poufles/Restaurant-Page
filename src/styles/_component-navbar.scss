@@ -1,0 +1,76 @@
+header.comp_nav {
+    background-color: $dark-text_color;
+    border-radius: 50px;
+    box-shadow: 0px 5px 5px -3px $light-text_color;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    z-index: 50;
+}
+
+nav {
+    width: 600px;
+    height: 50px;
+    display: flex;
+    position: relative;
+    transition: 0.5s;
+}
+
+nav:hover {
+    height: 60px;
+}
+
+.comp_nav .wrapper-button {
+    transform: translate(-50%, 50%);
+    position: absolute;
+    bottom: 100%;
+}
+
+.comp_nav .wrapper-button:nth-of-type(1) {
+    left: 30%;
+}
+
+.comp_nav .wrapper-button:nth-of-type(2) {
+    left: 50%;
+}
+
+.comp_nav .wrapper-button:nth-of-type(3) {
+    left: 70%;
+}
+
+.comp_nav .items {
+    background-color: $light-text_color;
+    border: 7px solid $dark-text_color;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    min-width: max-content;
+    width: 65px;
+    min-height: max-content;
+    height: 65px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.comp_nav .items::before, .comp_nav .items::after {
+    content: '';
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    bottom: 50%;
+}
+
+.comp_nav .items::before {
+    background-image: radial-gradient(circle at left top, transparent 20px, $dark-text_color 10px);
+    right: 100%;
+}
+
+.comp_nav .items::after {
+    background-image: radial-gradient(circle at right top, transparent 20px, $dark-text_color 10px);
+    left: 100%;
+}
+
+.comp_nav .items:hover {
+    border-radius: 30px;
+    padding: 0 20px;
+}
