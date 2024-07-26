@@ -12,7 +12,7 @@ window.addEventListener('load', () => {
     loading.createComponent();
     loading.playAnimation();
     setTimeout(() => {
-        homepage.createHomepage();
+        homepage.createPage();
         navbar.createComponent();
         contentpage.prependContentPage(navbar.getComponent())
     }, 2000);

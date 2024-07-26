@@ -1,4 +1,9 @@
-const navbar = function() {
+import loading from './comp_loading.js';
+import homepage from './page_homepage.js';
+import cuppiespage from './page_cuppiespage.js';
+import aboutpage from './page_aboutpage.js';
+
+const navbar = function () {
     let component;
 
     // Create component function
@@ -21,36 +26,9 @@ const navbar = function() {
         const product = itemArr[1];
         const about = itemArr[2];
         // Adding text for each button
-        home.textContent = 'H';
-        product.textContent = 'C';
-        about.textContent = 'A';
-        // Adding listeners
-        home.addEventListener('mouseover', () => {
-            home.textContent = 'Home';
-        });
-        home.addEventListener('mouseout', () => {
-            setTimeout(() => {
-                home.textContent = 'H';
-            }, 150);
-        });
-
-        product.addEventListener('mouseover', () => {
-            product.textContent = 'Cuppies';
-        });
-        product.addEventListener('mouseout', () => {
-            setTimeout(() => {
-                product.textContent = 'C';
-            }, 150);
-        });
-
-        about.addEventListener('mouseover', () => {
-            about.textContent = 'About';
-        });
-        about.addEventListener('mouseout', () => {
-            setTimeout(() => {
-                about.textContent = 'A';
-            }, 150);
-        });
+        home.textContent = 'Home';
+        product.textContent = 'Cuppies';
+        about.textContent = 'About';
 
         // Creating the wrapper for the buttons
         for (let iter = 0; iter < 3; ++iter) {
@@ -70,6 +48,49 @@ const navbar = function() {
         header.classList.add('comp_nav');
         // Appending nav to the header
         header.appendChild(nav)
+
+        // Add event listeners to navbar buttons
+        home.addEventListener('mouseup', () => {
+            if (document.querySelector('.homepage') === null) {
+                const cuppies = document.querySelector('.page.cuppiespage');
+
+                const currentPage = cuppies !== null ? cuppiespage : aboutpage;
+
+                loading.playAnimation()
+                setTimeout(() => {
+                    currentPage.removePage();
+                    homepage.createPage();
+                }, 2000);
+            };
+        });
+
+        product.addEventListener('mouseup', () => {
+            if (document.querySelector('.cuppiespage') === null) {
+                const home = document.querySelector('.page.homepage');
+
+                const currentPage = home !== null ? homepage : aboutpage;
+
+                loading.playAnimation()
+                setTimeout(() => {
+                    currentPage.removePage();
+                    cuppiespage.createPage();
+                }, 2000);
+            };
+        });
+
+        about.addEventListener('mouseup', () => {
+            if (document.querySelector('.aboutpage') === null) {
+                const home = document.querySelector('.page.homepage');
+
+                const currentPage = home !== null ? homepage : cuppiespage;
+
+                loading.playAnimation()
+                setTimeout(() => {
+                    currentPage.removePage();
+                    aboutpage.createPage();
+                }, 2000);
+            };
+        });
 
         // Putting all to the component variable
         component = header;

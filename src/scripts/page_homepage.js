@@ -1,93 +1,47 @@
 import image from './images.js';
 import contentpage from './contentPage.js';
+import cloud from './comp_cloudFeaturedBubble.js'
 
 const homepage = function () {
-    const banner = document.createElement('div');
+    let banner;
 
-    // Side left
-    const sideLeft = createSideLeft();
-    
-    // Side right
-    const sideRight = createSideRight();
+    const createPage = () => {
+        // Define banner
+        banner = document.createElement('div');
 
-    // Add attribute(s) and class(es) to banner
-    banner.classList.add('banner');
-    // Append sides to banner
-    banner.appendChild(sideLeft);
-    banner.appendChild(sideRight);
+        // Side left
+        const sideLeft = createSideLeft();
 
-    const createHomepage = () => {
+        // Side right
+        const sideRight = createSideRight();
+
+        // Add attribute(s) and class(es) to banner
+        banner.classList.add('page');
+        banner.classList.add('homepage');
+        // Append sides to banner
+        banner.appendChild(sideLeft);
+        banner.appendChild(sideRight);
+        
         contentpage.appendContentPage(banner);
-    }
-    
-    const removeHomepage = () => {
+    };
+
+    const removePage = () => {
         contentpage.removeContentPage(banner);
-    }
+        banner = undefined;
+    };
 
     return {
-        createHomepage,
-        removeHomepage
+        createPage,
+        removePage
     }
 }();
-
-function createBubbleText() {
-    const wrapper = document.createElement('div');
-    const bubble = document.createElement('div');
-    const featuredText = document.createElement('p');
-    const spanText = document.createElement('span');
-    const spanTextPrice = document.createElement('span');
-    const featuredDesc = document.createElement('div');
-    const bubbleAction = document.createElement('button');
-
-    // Add attribute(s) and class(es) to bubble action
-    bubbleAction.classList.add('bubble-action');
-    // Add text to bubble action
-    bubbleAction.textContent = 'Order now !';
-    
-    // Add attribute(s) and class(es) to featured description
-    featuredDesc.classList.add('featured-desc');
-    // Add text to featured description
-    featuredDesc.textContent = 
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?';
-    
-    // Add attribute(s) and class(es) to price
-    spanTextPrice.classList.add('price');
-    spanTextPrice.setAttribute('id', 'price');
-    // Add text to price
-    spanTextPrice.textContent = '$4.99';
-    
-    // Add text to span text
-    spanText.textContent = ' | ';
-    
-    // Add attribute(s) and class(es) to featured text
-    featuredText.classList.add('featured-name');
-    // Add text to featured text
-    featuredText.textContent = 'Cuppychino';
-
-    // Add all span to featureed text
-    featuredText.appendChild(spanText);
-    featuredText.appendChild(spanTextPrice);
-
-    // Add attribute(s) and class(es) to bubble
-    bubble.classList.add('bubble-text');
-    // Append all child to bubble 
-    bubble.appendChild(featuredText);
-    bubble.appendChild(featuredDesc);
-    bubble.appendChild(bubbleAction);
-
-    // Add attribute(s) and class(es) to wrapper
-    wrapper.classList.add('wrapper-bubble-text');
-    // Append bubble to wrapper
-    wrapper.appendChild(bubble);
-
-    return wrapper;
-};
 
 function createSideLeft() {
     const sideLeft = document.createElement('div');
 
     // Define bubble text
-    const bubbleText = createBubbleText(); 
+    cloud.bubbleText('Cuppychino', '$4.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?')
+    const bubbleText = cloud.getComponent();
 
     // Defining featured products
     const featured1 = image.createImage('/src/assets/pexels-tyler-nix-1259808-2396220.jpg');
@@ -103,8 +57,8 @@ function createSideLeft() {
     // Adding attribute(s) and class(es)
     for (let iter = 0; iter < featuredArr.length; ++iter) {
         let img = featuredArr[iter];
-        img.classList.add('featured');
         img.setAttribute('id', `featured-img img-${iter + 1}`);
+        img.dataset.featuredNo = iter + 1;
     };
 
     // Creating featured bubble
@@ -114,6 +68,7 @@ function createSideLeft() {
         let bubbleButton = document.createElement('button');
         // Add attribute(s) and class(es)
         bubbleButton.classList.add('bubble-item');
+        bubbleButton.dataset.featuredNo = iter + 1;
         // Initialize first active bubble
         if (iter === 0) {
             bubbleButton.classList.add('active')
@@ -128,6 +83,11 @@ function createSideLeft() {
 
     // Append images to side left
     for (let iter = 0; iter < featuredArr.length; ++iter) {
+        let img = featuredArr[iter];
+        // Add class to the featured img
+        img.classList.add('featured-banner');
+        // Initialize active featured image
+        if (iter !== 0) img.classList.add('opacity-none');
         sideLeft.appendChild(featuredArr[iter]);
     };
 
@@ -139,6 +99,12 @@ function createSideLeft() {
 
     // Append bubble text to side left
     sideLeft.appendChild(bubbleText);
+
+    // Add event listener for featured buttons
+    const featuredButtons = sideLeft.querySelectorAll('.bubble-item');
+    featuredButtons.forEach(button => {
+        featuredBubbleListener(button, bubbleText);
+    });
 
     return sideLeft;
 };
@@ -154,23 +120,29 @@ function createSideRight() {
     const title = document.createElement('p');
     const containerRights = document.createElement('div');
     const copyright = document.createElement('p');
-    const el_br = document.createElement('br');
+    const author = document.createElement('p');
+
+    // Add attribute(s) and class(es) to author
+    author.classList.add('author');
+    // Add text to author
+    author.textContent = '@ poufsadev 2024';
 
     // Add attribute(s) and class(es) to copyright
     copyright.classList.add('copyright');
     // Add text to copyright
-    copyright.textContent = `All Rights Reserved${el_br}@ poufsadev 2024`;
-    
+    copyright.textContent = 'All Rights Reserved';
+
     // Add attribute(s) and class(es) to container rights
     containerRights.classList.add('container-rights');
-    // Append copyright to container rights
+    // Append copyright and author to container rights
     containerRights.appendChild(copyright);
-    
+    containerRights.appendChild(author);
+
     // Add attribute(s) and class(es) to title
     title.classList.add('title');
     // Add text to title
     title.textContent = 'Cuppy';
-    
+
     // Add attribute(s) and class(es) to container title
     containerTitle.classList.add('container-title');
     // Append title to container title
@@ -209,7 +181,7 @@ function createSideRight() {
 };
 
 // Create github SVG function
-function createGitHubSVG () {
+function createGitHubSVG() {
     // Please note that this svg is taken from  https://www.iconfinder.com
 
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -233,7 +205,7 @@ function createGitHubSVG () {
 }
 
 // Create instagram SVG function
-function createInstagramSVG () {
+function createInstagramSVG() {
     // Please note that this svg is taken from  https://www.iconfinder.com
 
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -266,7 +238,7 @@ function createInstagramSVG () {
 }
 
 // Create twitter/X SVG function
-function createTwitterSVG () {
+function createTwitterSVG() {
     // Please note that this svg is taken from  https://www.iconfinder.com
 
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -283,5 +255,73 @@ function createTwitterSVG () {
 
     return svg;
 }
+
+function featuredListener(buttonEl) {
+    buttonEl.addEventListener('mouseup', () => {
+        const side = document.querySelector('.side.left');
+        const featuredImg = side.querySelectorAll('.featured-banner');
+        const buttons = side.querySelectorAll('.bubble-item');
+
+        // Validate the proper clicked button
+        buttons.forEach(button => {
+            if (button.dataset.featuredNo !== buttonEl.dataset.featuredNo) {
+                button.classList.remove('active');
+            };
+
+            buttonEl.classList.add('active');
+        });
+
+        // Depending on the button, validate the proper
+        // image to be shown
+        featuredImg.forEach(img => {
+            if (img.dataset.featuredNo !== buttonEl.dataset.featuredNo) {
+                img.classList.add('opacity-none');
+            } else {
+                img.classList.remove('opacity-none');
+            }
+        });
+
+    });
+};
+
+function featuredBubbleListener(buttonEl, featuredBubble) {
+    buttonEl.addEventListener('mouseup', () => {
+        const side = document.querySelector('.side.left');
+        const featuredImg = side.querySelectorAll('.featured-banner');
+        const buttons = side.querySelectorAll('.bubble-item');
+
+        // Get dataset of button element
+        const featuredNo = buttonEl.dataset.featuredNo;
+
+        // Validate the proper clicked button
+        buttons.forEach(button => {
+            if (button.dataset.featuredNo !== featuredNo) {
+                button.classList.remove('active');
+            };
+
+            buttonEl.classList.add('active');
+        });
+
+        // Depending on the button, validate the proper
+        // image to be shown
+        featuredImg.forEach(img => {
+            if (img.dataset.featuredNo !== featuredNo) {
+                img.classList.add('opacity-none');
+            } else {
+                img.classList.remove('opacity-none');
+            };
+        });
+
+        // Depending on the button, change the content
+        // of the featured bubble/cloud
+        if (featuredNo == 1) {
+            cloud.bubbleText('Cuppychino', '$4.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?')
+        } else if (featuredNo == 2) {
+            cloud.bubbleText('Mochy', '$3.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
+        } else {
+            cloud.bubbleText('Expressive', '$5.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
+        };
+    });
+};
 
 export default homepage;

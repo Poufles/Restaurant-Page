@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/css/main.css">
+    <script type="module" src="/src/scripts/index.js"></script>
     <title>
         Homepage
     </title>
@@ -33,21 +34,22 @@
     <div id="content">
         <div class="banner">
             <div class="side left">
-                <img src="/src/assets/pexels-tyler-nix-1259808-2396220.jpg" alt="" class="featured"
-                    id="featured-img img-1">
-                <img src="/src/assets/pexels-rachel-claire-5865232.jpg" alt="" class="featured" id="featured-img img-2">
-                <img src="/src/assets/pexels-oznur-taskan-172633297-12896257.jpg" alt="" class="featured"
-                    id="featured-img img-3">
+                <img src="/src/assets/pexels-tyler-nix-1259808-2396220.jpg" alt="" class="featured-banner"
+                    id="featured-img img-1" data-featured-no="1">
+                <img src="/src/assets/pexels-rachel-claire-5865232.jpg" alt="" class="featured-banner"
+                    id="featured-img img-2" data-featured-no="2">
+                <img src="/src/assets/pexels-oznur-taskan-172633297-12896257.jpg" alt="" class="featured-banner"
+                    id="featured-img img-3" data-featured-no="3">
                 <div class="featured-bubble">
-                    <button class="bubble-item active">
+                    <button class="bubble-item active" data-featured-no="1">
                         <img src="/src/assets/pexels-tyler-nix-1259808-2396220.jpg" alt="" class="featured"
                             id="featured-img img-1">
                     </button>
-                    <button class="bubble-item">
+                    <button class="bubble-item" data-featured-no="2">
                         <img src="/src/assets/pexels-rachel-claire-5865232.jpg" alt="" class="featured"
                             id="featured-img img-2">
                     </button>
-                    <button class="bubble-item">
+                    <button class="bubble-item" data-featured-no="3">
                         <img src="/src/assets/pexels-oznur-taskan-172633297-12896257.jpg" alt="" class="featured"
                             id="featured-img img-3">
                     </button>
@@ -56,7 +58,7 @@
                 <div class="wrapper-bubble-text">
                     <div class="bubble-text">
                         <p class="featured-name">
-                            Cuppychino<span> | <span class="price" id="price">$4.99</span></span>
+                            Cuppychino | <span class="price" id="price">$4.99</span>
                         </p>
                         <div class="featured-desc">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit
@@ -119,7 +121,8 @@
                 <div class="container-rights">
                     <p class="copyright">
                         All Rights Reserved
-                        <br>
+                    </p>
+                    <p class="author">
                         @ poufsadev 2024
                     </p>
                 </div>

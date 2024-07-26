@@ -9,8 +9,12 @@
 @import './component-loading';
 @import './component-navbar';
 
+// Imports of pages
+@import './page-cuppiespage';
+
 body {
     background-color: $primary-color;
+    height: 100dvh;
     position: relative;
 }
 
@@ -23,7 +27,7 @@ svg {
     height: 30px;
 }
 
-.banner {
+.page.homepage {
     height: 100dvh;
     min-height: 400px;
     display: flex;
@@ -37,11 +41,10 @@ svg {
     position: relative;
 }
 
-.side.left>.featured {
+.side.left>.featured-banner {
     object-fit: cover;
     height: 100%;
     width: 100%;
-    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -64,14 +67,14 @@ svg {
 }
 
 .side.left .featured-bubble .bubble-item {
-    border: 0;
+    border: 3px solid $dark-text_color;
     aspect-ratio: 1;
     border-radius: 50%;
     box-shadow: 0 0 15px -3px $dark-text_color;
     width: 80px;
     height: 80px;
     overflow: hidden;
-    transition: 0.2s;
+    transition: 0.3s;
     position: relative;
 }
 
@@ -101,12 +104,12 @@ svg {
 }
 
 .side .bubble-text {
-    background-color: #0000002f;
+    background-color: #00000074;
     backdrop-filter: blur(15px);
     border-radius: 30px;
     padding: 24px 27px 33px;
-    height: 200px;
-    width: 350px;
+    height: 225px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,17 +122,13 @@ svg {
     font-size: 2.5rem;
 }
 
-.side .bubble-text .featured-name span {
-    font-size: 1.5rem;
-}
-
 .side .bubble-text .featured-name .price {
     color: $secondary-color;
 }
 
 .side .bubble-text .featured-desc {
     color: $light-text_color;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     text-align: justify;
 }
 

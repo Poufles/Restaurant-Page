@@ -3,7 +3,8 @@ header.comp_nav {
     border-radius: 50px;
     box-shadow: 0px 5px 5px -3px $light-text_color;
     transform: translateX(-50%);
-    position: absolute;
+    position: fixed;
+    transition: 0.5s;
     bottom: 1%;
     left: 50%;
     z-index: 50;
@@ -11,14 +12,14 @@ header.comp_nav {
 
 nav {
     width: 600px;
-    height: 50px;
+    height: 60px;
     display: flex;
+    transition: 0.3s;
     position: relative;
-    transition: 0.5s;
 }
 
 nav:hover {
-    height: 60px;
+    height: 70px;
 }
 
 .comp_nav .wrapper-button {
@@ -28,7 +29,7 @@ nav:hover {
 }
 
 .comp_nav .wrapper-button:nth-of-type(1) {
-    left: 30%;
+    left: 25%;
 }
 
 .comp_nav .wrapper-button:nth-of-type(2) {
@@ -36,20 +37,26 @@ nav:hover {
 }
 
 .comp_nav .wrapper-button:nth-of-type(3) {
-    left: 70%;
+    left: 75%;
 }
 
 .comp_nav .items {
-    background-color: $light-text_color;
+    background-color: $secondary-color;
     border: 7px solid $dark-text_color;
-    border-radius: 50%;
+    border-radius: 30px;
     font-size: 1.3rem;
+    padding: 0 20px;
     min-width: max-content;
     width: 65px;
     min-height: max-content;
     height: 65px;
-    transition: 0.3s;
+    transition: 0.5s;
     position: relative;
+}
+
+.comp_nav .items:hover {
+    background-color: $primary-color;
+    color: $light-text_color
 }
 
 .comp_nav .items::before, .comp_nav .items::after {
@@ -68,9 +75,4 @@ nav:hover {
 .comp_nav .items::after {
     background-image: radial-gradient(circle at right top, transparent 20px, $dark-text_color 10px);
     left: 100%;
-}
-
-.comp_nav .items:hover {
-    border-radius: 30px;
-    padding: 0 20px;
 }
