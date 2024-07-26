@@ -140,6 +140,7 @@ function createSideRight() {
 
     // Add attribute(s) and class(es) to title
     title.classList.add('title');
+    title.classList.add('brand-name');
     // Add text to title
     title.textContent = 'Cuppy';
 

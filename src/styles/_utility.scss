@@ -1,3 +1,123 @@
 .opacity-none {
     opacity: 0;
 }
+
+.button-press {
+    background-color: $accent-color !important;
+}
+
+.brand-name {
+    color: $light-text_color;
+    font-family: $font-stack-accent;
+    text-transform: capitalize;
+    position: relative;
+    transform: rotate(-3deg);
+}
+
+.brand-name::after {
+    content: 'Life in a Cup';
+    font-size: 2rem;
+    width: max-content;
+    text-shadow: 1px 1px $accent-color;
+    position: absolute;
+    bottom: 73%;
+    right: 5%;
+}
+
+.featured-banner {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+.featured.active {
+    opacity: 1;
+}
+
+.featured-bubble .bubble-item {
+    border: 3px solid $dark-text_color;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 15px -3px $dark-text_color;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    transition: 0.3s;
+    position: relative;
+}
+
+.featured-bubble .bubble-item.active {
+    border: 3px solid $light-text_color;
+    transform: scale(1.2);
+}
+
+.featured-bubble img {
+    object-fit: cover;
+    width: 100%;
+    object-position: 0 -15px;
+}
+
+.featured-bubble .bubble-item .bubble-text {
+    transform: translateY(-50%);
+    position: absolute;
+    right: 100%;
+    top: 50%;
+}
+
+.wrapper-bubble-text {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 25%;
+    left: 50%;
+}
+
+.bubble-text {
+    background-color: #00000074;
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 24px 27px 33px;
+    height: 225px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    transition: 0.3s;
+}
+
+.bubble-text .featured-name {
+    color: $light-text_color;
+    font-size: 2.5rem;
+}
+
+.bubble-text .featured-name .price {
+    color: $secondary-color;
+}
+
+.bubble-text .featured-desc {
+    color: $light-text_color;
+    font-size: 1.3rem;
+    text-align: justify;
+}
+
+.bubble-action {
+    background-color: $light-text_color;
+    border: 0;
+    border-radius: 30px;
+    color: $dark-text_color;
+    font-size: 1.2rem;
+    padding: 13px 22px;
+    transform: translate(50%, -50%);
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transition: 0.3s;
+}
+
+.bubble-action:hover {
+    transform: translate(50%, -50%) scale(1.08);
+}

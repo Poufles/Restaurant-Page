@@ -50,6 +50,21 @@ const navbar = function () {
         header.appendChild(nav)
 
         // Add event listeners to navbar buttons
+        const navButtons = nav.querySelectorAll('button.items');
+        navButtons.forEach(navButton => {
+            navButton.addEventListener('mousedown', () => {
+                navButton.classList.add('button-press');
+            });
+            
+            navButton.addEventListener('mouseup', () => {
+                navButton.classList.remove('button-press');
+            });
+            
+            navButton.addEventListener('mouseleave', () => {
+                navButton.classList.remove('button-press');
+            });
+        });
+
         home.addEventListener('mouseup', () => {
             if (document.querySelector('.homepage') === null) {
                 const cuppies = document.querySelector('.page.cuppiespage');
