@@ -1,4 +1,4 @@
-const createBubbleText = function () {
+function createBubbleText () {
     const wrapper = document.createElement('div');
     // Add attribute(s) and class(es) to wrapper
     wrapper.classList.add('wrapper-bubble-text');
@@ -13,14 +13,14 @@ const createBubbleText = function () {
         // Create new variables
         const bubble = document.createElement('div');
         const featuredText = document.createElement('p');
-        const spanTextPrice = document.createElement('span');
+        const featuredPrice = document.createElement('p');
         const featuredDesc = document.createElement('div');
         const bubbleAction = document.createElement('button');
 
         // Add attribute(s) and class(es) to bubble action
         bubbleAction.classList.add('bubble-action');
         // Add text to bubble action
-        bubbleAction.textContent = 'Order now !';
+        bubbleAction.textContent = 'Order Now';
 
         // Add attribute(s) and class(es) to featured description
         featuredDesc.classList.add('featured-desc');
@@ -28,23 +28,21 @@ const createBubbleText = function () {
         featuredDesc.textContent = desc;
 
         // Add attribute(s) and class(es) to price
-        spanTextPrice.classList.add('price');
-        spanTextPrice.setAttribute('id', 'price');
+        featuredPrice.classList.add('featured-price');
+        featuredPrice.setAttribute('id', 'price');
         // Add text to price
-        spanTextPrice.textContent = price;
+        featuredPrice.textContent = `| ${price}`;
 
         // Add attribute(s) and class(es) to featured text
         featuredText.classList.add('featured-name');
         // Add text to featured text
-        featuredText.textContent = `${name} | `;
-
-        // Add all span to featureed text
-        featuredText.appendChild(spanTextPrice);
+        featuredText.textContent = name;
 
         // Add attribute(s) and class(es) to bubble
         bubble.classList.add('bubble-text');
         // Append all child to bubble 
         bubble.appendChild(featuredText);
+        bubble.appendChild(featuredPrice)
         bubble.appendChild(featuredDesc);
         bubble.appendChild(bubbleAction);
 
@@ -58,6 +56,6 @@ const createBubbleText = function () {
         bubbleText,
         getComponent,
     }
-}();
+};
 
 export default createBubbleText;

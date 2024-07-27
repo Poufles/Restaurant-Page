@@ -1,6 +1,6 @@
 import image from './images.js';
 import contentpage from './contentPage.js';
-import cloud from './comp_cloudFeaturedBubble.js'
+import cloudBubble from './comp_cloudFeaturedBubble.js'
 
 const homepage = function () {
     let banner;
@@ -40,8 +40,8 @@ function createSideLeft() {
     const sideLeft = document.createElement('div');
 
     // Define bubble text
-    cloud.bubbleText('Cuppychino', '$4.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?')
-    const bubbleText = cloud.getComponent();
+    const bubbleText = cloudBubble();
+    bubbleText.bubbleText('Cuppychino', '$4.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
 
     // Defining featured products
     const featured1 = image.createImage('/src/assets/pexels-tyler-nix-1259808-2396220.jpg');
@@ -98,7 +98,7 @@ function createSideLeft() {
     sideLeft.appendChild(bubble);
 
     // Append bubble text to side left
-    sideLeft.appendChild(bubbleText);
+    sideLeft.appendChild(bubbleText.getComponent());
 
     // Add event listener for featured buttons
     const featuredButtons = sideLeft.querySelectorAll('.bubble-item');
@@ -257,34 +257,6 @@ function createTwitterSVG() {
     return svg;
 }
 
-function featuredListener(buttonEl) {
-    buttonEl.addEventListener('mouseup', () => {
-        const side = document.querySelector('.side.left');
-        const featuredImg = side.querySelectorAll('.featured-banner');
-        const buttons = side.querySelectorAll('.bubble-item');
-
-        // Validate the proper clicked button
-        buttons.forEach(button => {
-            if (button.dataset.featuredNo !== buttonEl.dataset.featuredNo) {
-                button.classList.remove('active');
-            };
-
-            buttonEl.classList.add('active');
-        });
-
-        // Depending on the button, validate the proper
-        // image to be shown
-        featuredImg.forEach(img => {
-            if (img.dataset.featuredNo !== buttonEl.dataset.featuredNo) {
-                img.classList.add('opacity-none');
-            } else {
-                img.classList.remove('opacity-none');
-            }
-        });
-
-    });
-};
-
 function featuredBubbleListener(buttonEl, featuredBubble) {
     buttonEl.addEventListener('mouseup', () => {
         const side = document.querySelector('.side.left');
@@ -316,11 +288,11 @@ function featuredBubbleListener(buttonEl, featuredBubble) {
         // Depending on the button, change the content
         // of the featured bubble/cloud
         if (featuredNo == 1) {
-            cloud.bubbleText('Cuppychino', '$4.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?')
+            featuredBubble.bubbleText('Cuppychino', '$4.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?')
         } else if (featuredNo == 2) {
-            cloud.bubbleText('Mochy', '$3.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
+            featuredBubble.bubbleText('Mochy', '$3.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
         } else {
-            cloud.bubbleText('Expressive', '$5.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
+            featuredBubble.bubbleText('Expressive', '$5.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
         };
     });
 };

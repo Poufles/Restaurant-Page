@@ -6,6 +6,17 @@
     background-color: $accent-color !important;
 }
 
+.texture-overlay {
+    background-image: url(../assets/pexels-janakukebal-6496463.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .brand-name {
     color: $light-text_color;
     font-family: $font-stack-accent;
@@ -18,7 +29,6 @@
     content: 'Life in a Cup';
     font-size: 2rem;
     width: max-content;
-    text-shadow: 1px 1px $accent-color;
     position: absolute;
     bottom: 73%;
     right: 5%;
@@ -69,10 +79,7 @@
 }
 
 .wrapper-bubble-text {
-    transform: translate(-50%, -50%);
     position: absolute;
-    top: 25%;
-    left: 50%;
 }
 
 .bubble-text {
@@ -80,7 +87,7 @@
     backdrop-filter: blur(15px);
     border-radius: 30px;
     padding: 24px 27px 33px;
-    height: 225px;
+    height: 275px;
     width: 450px;
     display: flex;
     flex-direction: column;
@@ -91,17 +98,22 @@
 
 .bubble-text .featured-name {
     color: $light-text_color;
-    font-size: 2.5rem;
+    font-size: 2.7rem;
+    font-weight: bold;
 }
 
-.bubble-text .featured-name .price {
+.bubble-text .featured-price {
     color: $secondary-color;
+    font-size: 2.2rem;
+    font-weight: normal;
 }
 
 .bubble-text .featured-desc {
     color: $light-text_color;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     text-align: justify;
+    text-transform: capitalize;
+    padding-top: 10px;
 }
 
 .bubble-action {
@@ -109,15 +121,33 @@
     border: 0;
     border-radius: 30px;
     color: $dark-text_color;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     padding: 13px 22px;
-    transform: translate(50%, -50%);
     position: absolute;
-    top: 100%;
-    right: 50%;
     transition: 0.3s;
 }
 
-.bubble-action:hover {
-    transform: translate(50%, -50%) scale(1.08);
+.wrapper-bubble-list {
+    position: absolute;
+}
+
+.wrapper-bubble-list .featured-list {
+    background-color: #00000074;
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 13px 23px 13px 47px;
+    list-style-type: '\2713  ';
+    display: flex;
+    gap: 40px
+
+}
+
+.wrapper-bubble-list .item {
+    color: $light-text_color;
+    font-size: 1.5rem;
+
+    &::marker {
+        color: rgb(0, 255, 0);
+        font-weight: bold;
+    }
 }

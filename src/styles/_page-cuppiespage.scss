@@ -1,4 +1,22 @@
+.cuppiespage {
+    background-color: $primary-color;
+    padding: 30px;
+}
+
+.cuppiespage::before {
+    content: '';
+    background: $main-gradient;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: banner_animation-after 30s ease-in-out infinite;
+}
+
 .cuppiespage .hero {
+    box-shadow: 0 10px 17px $dark-text_color;
+    border-radius: 50px;
     width: 100%;
     height: 85dvh;
     overflow: hidden;
@@ -12,8 +30,8 @@
 }
 
 .cuppiespage .top-layer {
-    background-image: radial-gradient(circle at left top, transparent 50%, $dark-text_color);
-    padding: 45px 70px;
+    background-image: radial-gradient(circle at center bottom, transparent 45%, $dark-text_color);
+    padding: 45px 75px;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -21,53 +39,72 @@
     left: 0;
 }
 
-.top-section {
+.cuppiespage .top-container {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
+    position: relative;
 }
 
 .cuppiespage .logo {
     background-color: transparent;
     border: none;
-    font-size: 4.5rem;
-    text-shadow: 2px 2px $primary-color;
+    font-size: 8rem;
+    text-shadow: 5px 5px $dark-text_color;
+    transform: translateX(-50%);
+    left: 50%;
 }
 
 .cuppiespage .logo::after {
     content: 'Life in a Cup';
-    font-size: 1rem;
+    font-size: 1.5rem;
     width: max-content;
-    text-shadow: 1px 1px $accent-color;
+    text-shadow: 2px 2px $dark-text_color;
     position: absolute;
     bottom: 73%;
     right: 5%;
 }
 
-.cuppiespage .featured-layer {
-    width: 100%;
-    position: relative;
-}
-
-.cuppiespage .featured-title {
-    font-family: $font-stack-sub;
-    color: $light-text_color;
-    font-size: 5rem;
-    margin-bottom: 13px;
-}
-
 .cuppiespage .featured-item {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: center;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+.cuppiespage .featured-title {
+    color: $light-text_color;
+    font-family: $font-stack-sub;
+    font-size: 5rem;
+    text-shadow: 4px 4px $dark-text_color;
+    margin-bottom: 13px;
 }
 
 .cuppiespage .featured-bubble {
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: left;
     gap: 23px;
+}
+
+.cuppiespage .wrapper-bubble-text {
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0;
+}
+
+.cuppiespage .bubble-action {
+    transform: translate(-50%, -50%);
+    top: 100%;
+    left: 50%;
+}
+
+.cuppiespage .wrapper-bubble-list {
+    transform: translateX(-50%);
+    bottom: 5%;
+    left: 50%;
+}
+
+.cuppiespage .product-section {
+    height: 200dvh;
 }
