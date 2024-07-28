@@ -1,3 +1,291 @@
+button {
+    font-family: 'Lathic', sans-serif;
+    cursor: pointer;
+}
+
+dialog {
+    background-color: transparent;
+    border: 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: 
+    opacity 0.5s allow-discrete,
+    transform 0.5s allow-discrete;
+}
+
+dialog::backdrop {
+    background-color: transparent;
+    transition: backdrop-filter 0.5s allow-discrete;
+}
+
+dialog[open]::backdrop {
+    backdrop-filter: blur(5px);
+}
+
+dialog[open] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@starting-style {
+    dialog[open] {
+        opacity: 0;
+        transform: translateY(1000%);
+    }
+
+    dialog[open]::backdrop {
+        backdrop-filter: blur(0);
+    }
+}
+
 .dialog-container {
-    font-size: 10rem;
+    --_border-radius: 30px;
+    --_gap: 15px;
+    border-radius: var(--_border-radius);
+    box-shadow: 0 3px 15px #00000089;
+    width: 600px;
+    height: 800px;
+    overflow: hidden;
+    display: flex;
+    gap: var(--_gap);
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.dialog-container img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-container :is(button, img)::selection {
+    color: none;
+    background: none;
+}
+
+.dialog-container .exit {
+    background-color: #fffaf1;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: var(--_border-radius);
+    right: var(--_border-radius);
+}
+
+.dialog-container .exit svg {
+    transition: 0.3s;
+    width: 30px;
+    height: 30px;
+    fill: #000;
+}
+
+.dialog-container .exit:hover {
+    background-color: #000;
+    box-shadow: 0 0 15px #FFFAF1;
+}
+
+.dialog-container .exit:active {
+    transform: scale(0.8);
+}
+
+.dialog-container .exit:not(:hover):active {
+    transform: scale(1);
+}
+
+.dialog-container .exit:hover svg {
+    fill: #FFFAF1;
+}
+
+.dialog-container .item-name {
+    color: #FFFAF1;
+    font-size: 2.6rem;
+    font-weight: bold;
+    width: 300px;
+    position: absolute;
+    top: var(--_border-radius);
+    left: var(--_border-radius);
+}
+
+.dialog-container .bottom-part {
+    width: calc(100% - var(--_border-radius) * 2);
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: var(--_border-radius);
+    left: var(--_border-radius);
+}
+
+.dialog-container .item-desc {
+    color: #FFFAF1;
+    font-size: 1.25rem;
+    text-align: justify;
+}
+
+.dialog-container .option {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dialog-container .item-size {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+}
+
+.dialog-container .size-text {
+    color: #fffaf1;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.dialog-container .size {
+    background-color: transparent;
+    border: 2px solid #FFFAF1;
+    border-radius: 50%;
+    color: #FFFAF1;
+    font-size: 1rem;
+    font-weight: bold;
+    height: 30px;
+    width: 30px;
+    transition: 0.2s;
+}
+
+.dialog-container .size:hover {
+    background-color: #c99c83;
+}
+
+.dialog-container .size.active {
+    background-color: #c99c83;
+    border: 2px solid transparent;
+    box-shadow: 0 0 15px -2px #FFFAF1;
+}
+
+.dialog-container .item-quantity {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-container .quantity {
+    color: #FFFAF1;
+    font-size: 1.25rem;
+}
+
+.dialog-container .item-quantity svg {
+    fill: #c99c83;
+    height: 25px;
+    width: 25px;
+}
+
+.dialog-container .item-quantity button {
+    background-color: #FFFAF1;
+    border: transparent;
+    border-radius: 50%;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 30px;
+    width: 30px;
+    transition: 0.2s;
+}
+
+.dialog-container .item-quantity button:hover {
+    background-color: #c99c83;
+    color: #FFFAF1;
+}
+
+.dialog-container .item-quantity button:active {
+    background-color: #8B3F3F;
+}
+
+.dialog-container .item-quantity button:active:not(:hover) {
+    background-color: #FFFAF1;
+    color: #000;
+}
+
+.dialog-container .item-action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.dialog-container .item-action button {
+    border: 0;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 13px 19px;
+    transition: 0.2s;
+}
+
+.dialog-container .item-action button:hover {
+    background-color: #8B3F3F;
+    border: 2px solid #8B3F3F;
+}
+
+.dialog-container .item-action button:active {
+    transform: scale(0.95);
+}
+
+.dialog-container .item-action .add-to-cart {
+    background-color: transparent;
+    border: 2px solid #FFFAF1;
+    color: #FFFAF1;
+    text-align: center;
+    width: 30%;
+}
+
+.dialog-container .item-action button:active:not(:hover) {
+    transform: scale(1);
+}
+
+.dialog-container .item-action .checkout {
+    background-color: #c99c83;
+    border: 2px solid #FFFAF1;
+    color: #FFFAF1;
+    font-weight: bold;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    justify-content: center;
+    width: calc(70% - 25px);
+}
+
+.dialog-container .item-action .checkout svg {
+    width: 20px;
+    height: 20px;
+    fill: #FFFAF1;
+}
+
+.exit_modal {
+    animation: exit_modal 0.5s ease-in-out forwards;
+}
+
+/* Animation */
+@keyframes exit_modal {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(1000%);
+    }
 }
