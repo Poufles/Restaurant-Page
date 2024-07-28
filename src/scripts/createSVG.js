@@ -108,4 +108,70 @@ function createTwitterSVG() {
     return svg;
 }
 
-export  {createCoffeeSVG, createGitHubSVG, createTwitterSVG, createInstagramSVG};
+// Create rating heart SVG function
+function createRatingHeartSVG() {
+    // Please note that this svg is taken from  https://www.iconfinder.com
+
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    const path1 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+    
+    // Create svg attribute(s) and clas(es)
+    svg.setAttribute('height', '24');
+    svg.setAttribute('width', '24');
+
+    // Create g attribute(s) and clas(es)
+    g.setAttribute('transform', 'translate(0 -1028.4)');
+
+    // Create path 1
+    path1.setAttribute('d', 'm7 1031.4c-1.5355 0-3.0784 0.5-4.25 1.7-2.3431 2.4-2.2788 6.1 0 8.5l9.25 9.8 9.25-9.8c2.279-2.4 2.343-6.1 0-8.5-2.343-2.3-6.157-2.3-8.5 0l-0.75 0.8-0.75-0.8c-1.172-1.2-2.7145-1.7-4.25-1.7z');
+    path1.setAttribute('fill', '#C0392B');
+
+    // Append path to g tag
+    g.appendChild(path1);
+
+    // Append paths to svg
+    svg.appendChild(g);
+
+    return svg;
+};
+
+// Create checkout SVG function
+function createCheckoutSVG() {
+    // Please note that this svg is taken from  https://www.iconfinder.com
+
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const path1 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+    
+    // Create svg attribute(s) and clas(es)
+    svg.setAttribute('viewBox', '0 0 576 512');
+
+    // Create path 1
+    path1.setAttribute('d', 'M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z');
+
+    // Append paths to svg
+    svg.appendChild(path1);
+
+    return svg;
+};
+
+// Create exit SVG function
+function createExitSVG() {
+    // Please note that this svg is taken from  https://www.iconfinder.com
+
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const path1 = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+    
+    // Create svg attribute(s) and clas(es)
+    svg.setAttribute('viewBox', '0 0 24 24');
+
+    // Create path 1
+    path1.setAttribute('d', 'M14.8,12l3.6-3.6c0.8-0.8,0.8-2,0-2.8c-0.8-0.8-2-0.8-2.8,0L12,9.2L8.4,5.6c-0.8-0.8-2-0.8-2.8,0   c-0.8,0.8-0.8,2,0,2.8L9.2,12l-3.6,3.6c-0.8,0.8-0.8,2,0,2.8C6,18.8,6.5,19,7,19s1-0.2,1.4-0.6l3.6-3.6l3.6,3.6   C16,18.8,16.5,19,17,19s1-0.2,1.4-0.6c0.8-0.8,0.8-2,0-2.8L14.8,12z');
+
+    // Append paths to svg
+    svg.appendChild(path1);
+
+    return svg;
+};
+
+export  {createCoffeeSVG, createGitHubSVG, createTwitterSVG, createInstagramSVG, createRatingHeartSVG, createCheckoutSVG, createExitSVG};
