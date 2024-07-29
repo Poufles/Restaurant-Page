@@ -278,24 +278,4 @@ function createModal(image, name, desc) {
     return dialog;
 };
 
-window.addEventListener('load', () => {
-    const body = document.querySelector('body');
-    body.appendChild(createCoffeeCard(0, '/src/assets/pexels-rachel-claire-5865232.jpg', 'Kapeng Daks', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur provident tempore, saepe earum tenetur quis aperiam delectus cum consequuntur ut tempora optio voluptate temporibus beatae quam doloremque odit, voluptatum quas?', 6.90, 5));
-    // const card = document.querySelector('.card');
-    // const modal = document.querySelector('dialog.buy-screen');
-    // const exit = document.querySelector('dialog .exit');
-
-    // card.addEventListener('mouseup', () => {
-    //     modal.showModal();
-    // });
-
-    // exit.addEventListener('mouseup', () => {
-    //     modal.classList.add('exit_modal');
-    //     setTimeout(() => {
-    //         modal.close();
-    //         modal.classList.remove('exit_modal');
-    //     }, 300);
-    // });
-});
-
 export default createCoffeeCard;

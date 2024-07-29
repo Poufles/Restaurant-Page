@@ -1,35 +1,34 @@
 header.comp_nav {
-    background-color: $dark-text_color;
+    background-image: radial-gradient(circle at center, $primary-color, $accent-color);
     border-radius: 50px;
-    box-shadow: 0px 5px 5px -3px $light-text_color;
+    box-shadow: 0px 5px 5px -3px $dark-text_color;
     transform: translateX(-50%);
     position: fixed;
-    transition: 0.5s;
-    bottom: 1%;
+    bottom: 2%;
     left: 50%;
     z-index: 50;
 }
 
 nav {
-    width: 600px;
-    height: 60px;
+    width: 550px;
+    height: 55px;
     display: flex;
     transition: 0.3s;
     position: relative;
 }
 
 nav:hover {
-    height: 70px;
+    height: 65px;
 }
 
 .comp_nav .wrapper-button {
     transform: translate(-50%, 50%);
     position: absolute;
-    bottom: 100%;
+    bottom: 50%;
 }
 
 .comp_nav .wrapper-button:nth-of-type(1) {
-    left: 25%;
+    left: 20%;
 }
 
 .comp_nav .wrapper-button:nth-of-type(2) {
@@ -37,26 +36,32 @@ nav:hover {
 }
 
 .comp_nav .wrapper-button:nth-of-type(3) {
-    left: 75%;
+    left: 80%;
 }
 
 .comp_nav .items {
-    background-color: $secondary-color;
-    border: 7px solid $dark-text_color;
+    background-color: transparent;
+    border: 0;
     border-radius: 30px;
-    font-size: 1.3rem;
-    padding: 0 20px;
+    color: $light-text_color;
+    padding: 7px 20px;
     min-width: max-content;
     width: 65px;
-    min-height: max-content;
-    height: 65px;
     transition: 0.2s;
     position: relative;
 }
 
+.comp_nav :is(#item-1, #item-3) {
+    font-size: 1.3rem;
+}
+
+.comp_nav #item-2 {
+    font-family: $font-stack-accent;
+    font-size: 2rem;
+}
+
 .comp_nav .items:hover {
-    background-color: $primary-color;
-    color: $light-text_color
+    color: $dark-text_color;
 }
 
 .comp_nav .items::before, .comp_nav .items::after {
@@ -65,14 +70,4 @@ nav:hover {
     width: 20px;
     position: absolute;
     bottom: 50%;
-}
-
-.comp_nav .items::before {
-    background-image: radial-gradient(circle at left top, transparent 20px, $dark-text_color 10px);
-    right: 100%;
-}
-
-.comp_nav .items::after {
-    background-image: radial-gradient(circle at right top, transparent 20px, $dark-text_color 10px);
-    left: 100%;
 }

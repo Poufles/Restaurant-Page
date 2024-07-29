@@ -8,6 +8,7 @@ const productData = function() {
         const newProduct = {
             productNumber,
             img : product.productImage,
+            category: product.productCategory,
             name : product.productName,
             price : product.productPrice,
             desc : product.productDesc,
@@ -37,18 +38,19 @@ const productData = function() {
         }
     };
 
-    const view = () => console.log(productArr);
+    const getProduct = () => productArr;
 
     return {
         addProduct,
         refresh,
         deleteProduct,
-        view,
+        getProduct,
     };
 }();
 
-function Product(image, name, price, desc) {
+function Product(image, category, name, price, desc) {
     const productImage = image;
+    const productCategory = category;
     const productName = name;
     const productPrice = price;
     const productDesc = desc;
@@ -56,6 +58,7 @@ function Product(image, name, price, desc) {
     const getProduct = () => {
         return {
             productImage,
+            productCategory,
             productName,
             productPrice,
             productDesc,
@@ -66,3 +69,5 @@ function Product(image, name, price, desc) {
         getProduct,
     }
 };
+
+export { productData, Product };

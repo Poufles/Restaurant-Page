@@ -6,12 +6,25 @@
     background-color: $accent-color !important;
 }
 
+.display-none {
+    display: none;
+}
+
+.scale-1 {
+    transform: scale(1);
+}
+
+.scale-05 {
+    transform: scale(0.5);
+}
+
 .texture-overlay {
     background-image: url(../assets/pexels-janakukebal-6496463.jpg);
     background-size: cover;
+    filter: blur(3px) brightness(0.7);
     width: 100%;
     height: 100%;
-    opacity: 0.3;
+    opacity: 0.25;
     position: absolute;
     top: 0;
     left: 0;
