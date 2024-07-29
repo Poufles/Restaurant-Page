@@ -21,21 +21,26 @@ window.addEventListener('load', () => {
         contentpage.prependContentPage(navbar.getComponent())
     }, 2000);
 
-    // Creating coffee
+    /*
+        Initializing coffee as there is no database.
+        This simply acts as the "database" but array
+        and objects are utilized.
+    */
+   
     // Cuppyccino
-    const c1 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppycino', 'Caramelized Chilly Cuppyccino', 5.99, 'desc');
-    const c2 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppycino', 'Amer-Doux Cuppyccino', 5.99, 'desc');
-    const c3 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppycino', 'Warm Fantasy Cuppyccino', 5.49, 'desc');
-    const c4 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppycino', 'Chocoholic Delight Cuppycino', 5.49, 'desc');
-    const c5 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppycino', 'Noble Elegance Cuppycino', 5.49, 'desc');
-    const c6 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppycino', 'Dark Desire Cuppyccino', 4.99, 'desc');
-    const c7 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppycino', 'Bachelor\'s Cuppychino');
+    const c1 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Caramelized Chilly Cuppyccino', 5.99, 'desc');
+    const c2 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Amer-Doux Cuppyccino', 5.99, 'desc');
+    const c3 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Warm Fantasy Cuppyccino', 5.49, 'desc');
+    const c4 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Chocoholic Delight Cuppyccino', 5.49, 'desc');
+    const c5 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Noble Elegance Cuppyccino', 5.49, 'desc');
+    const c6 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Dark Desire Cuppyccino', 4.99, 'desc');
+    const c7 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Bachelor\'s Cuppychino');
 
-    // Macchie
-    const m1 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchie', 'Graceful Touch Macchie', 5.49, 'desc');
-    const m2 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchie', 'Cloudy Sun Macchie', 4.99, 'desc');
-    const m3 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchie', 'Hazel Hug Macchie', 4.99, 'desc');
-    const m4 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchie', 'Macchie-ing Taste', 4.49, 'desc');
+    // Macchiee
+    const m1 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchiee', 'Graceful Touch Macchiee', 5.49, 'desc');
+    const m2 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchiee', 'Cloudy Sun Macchiee', 4.99, 'desc');
+    const m3 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchiee', 'Hazel Hug Macchiee', 4.99, 'desc');
+    const m4 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchiee', 'Macchiee-ing Taste', 4.49, 'desc');
 
     // Expressie
     const e1 = Product('src/assets/pexels-chevanon-312418.jpg', 'Expressie', 'Ame-Sœur Expressie', 5.49, 'desc');

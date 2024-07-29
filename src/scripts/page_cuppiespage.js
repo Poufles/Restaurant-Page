@@ -1,4 +1,6 @@
 import contentpage from './contentPage.js';
+import { productData } from './products.js';
+import createCoffeeCard from './comp_product_card_and_modal.js';
 
 const cuppiespage = function () {
     let container;
@@ -214,11 +216,252 @@ function createHero() {
 
 function createProductSection() {
     const productSection = document.createElement('section');
+    const headerContainer = document.createElement('header');
+    const detailContainer = document.createElement('div');
+    const detailTitle = document.createElement('h1');
+    const detailDesc = document.createElement('p');
+    const categoryContainer = document.createElement('div');
+    const categoryButtonMacchiee = document.createElement('button');
+    const categoryButtonMacchieeText = document.createElement('h1');
+    const categoryButtonCuppy = document.createElement('button');
+    const categoryButtonCuppyText = document.createElement('h1');
+    const categoryButtonExpress = document.createElement('button');
+    const categoryButtonExpressText = document.createElement('h1');
+
+    // Add text to each button
+    categoryButtonExpressText.textContent = 'Expressie';
+    categoryButtonMacchieeText.textContent = 'Macchiee';
+    categoryButtonCuppyText.textContent = 'Cuppyccino';
+    
+    // Initialize button text of Cuppyccino as active
+    categoryButtonCuppyText.classList.add('active');
+
+    // Append each text button to its button
+    categoryButtonExpress.appendChild(categoryButtonExpressText);
+    categoryButtonMacchiee.appendChild(categoryButtonMacchieeText);
+    categoryButtonCuppy.appendChild(categoryButtonCuppyText);
+
+    // Add attribute(s) and class(es) to each button
+    categoryButtonExpress.dataset.category = 'Expressie';
+    categoryButtonExpress.classList.add('item');
+    categoryButtonMacchiee.dataset.category = 'Macchiee';
+    categoryButtonMacchiee.classList.add('item');
+    categoryButtonCuppy.dataset.category = 'Cuppyccino';
+    categoryButtonCuppy.classList.add('item');
+
+    // Append each button to its container
+    categoryContainer.appendChild(categoryButtonMacchiee);
+    categoryContainer.appendChild(categoryButtonCuppy);
+    categoryContainer.appendChild(categoryButtonExpress);
+
+    // Add attribute(s) and class(es) to category container
+    categoryContainer.classList.add('category');
+
+    // Add text to detail desc
+    detailDesc.textContent =
+        'Savor Every Sip with Cuppy\'s exceptional coffee selection. From rich roasts to smooth blends, each cup promises a perfect start. Explore our curated collection and discover the essence of true coffee enjoyment, crafted for every coffee lover\'s delight.';
+
+    // Add attribute(s) and class(es) to detail desc
+    detailDesc.classList.add('desc');
+    
+    // Add text to detail title
+    detailTitle.textContent = 'Commence Your Day !';
+    
+    // Add attribute(s) and class(es) to detail desc
+    detailTitle.classList.add('title');
+
+    // Add details to the detail container
+    detailContainer.appendChild(detailTitle);
+    detailContainer.appendChild(detailDesc);
+
+    // Add attribute(s) and class(es) to the detail container
+    detailContainer.classList.add('detail')
+
+    // Append both containers to the header container
+    headerContainer.appendChild(detailContainer);
+    headerContainer.appendChild(categoryContainer);
+
+    // Add attribute(s) and class(es) to the header container
+    headerContainer.classList.add('header-text');
+
+    // Initialize category article element to Cuppyccino
+    const articleCategory = initializeArticleCategory('Cuppyccino');
+
+    // Add header container and article category to the product section
+    productSection.appendChild(headerContainer);
+    productSection.appendChild(articleCategory);
 
     // Add attribute(s) and class(es) to product section
     productSection.classList.add('product-section');
 
+    // Add event listeners to the category buttons
+    categoryButtonListener(categoryButtonMacchiee, categoryButtonCuppy, categoryButtonExpress);
+
     return productSection;
+};
+
+// Initialize article category function
+function initializeArticleCategory(category) {
+    const articleCategory = document.createElement('article');
+
+    // Initialize card items to Cuppyccino category
+    // Get product data
+    const data = productData.getProduct();
+    console.log(data);
+    const length = data.length;
+
+    // Iterate over the "database" array
+    for (let iter = 0; iter < length; ++iter) {
+        const item = data[iter];
+        // Check if the category of each item
+        // is "Cuppyccino"
+        if (item.category === category) {
+            // Create a card
+            const coffeeCard = createCoffeeCard(item.productNumber, item.img, item.name, item.desc, item.price, item.rate);
+
+            // Append card to the article element
+            articleCategory.appendChild(coffeeCard);
+        };
+    };
+    
+    // Add attribute(s) and class(es) to article element
+    articleCategory.dataset.category = category;
+    articleCategory.classList.add('category-container');
+
+    return articleCategory;
+};
+
+function categoryButtonListener(macchieeButton, cuppyccinoButton, expressieButton) {
+    const macchiee = macchieeButton.querySelector('h1');
+    const cuppyccino = cuppyccinoButton.querySelector('h1');
+    const expressie = expressieButton.querySelector('h1');
+
+
+    cuppyccinoButton.addEventListener('mouseup', () => {
+        // Validate if the button is currently active
+        if (cuppyccino.classList.contains('active')) return;
+    
+        // Check which button is currently active
+        const currentActive =
+            macchiee.classList.contains('active') ? macchiee : expressie
+    
+        // Remove active to the current button
+        currentActive.classList.remove('active');
+        // Add active to Cuppyccino
+        cuppyccino.classList.add('active');
+    
+        // Get the product section
+        const productSection = document.querySelector('.product-section');
+        // Get the current article category
+        const articleCategory = productSection.querySelector('article.category-container');
+        // Remove current article category to the product section
+        productSection.removeChild(articleCategory);
+    
+        // Create a new article category
+        const newArticleCategory = document.createElement('article');
+        newArticleCategory.classList.add('category-container');
+        newArticleCategory.dataset.category = 'Cuppyccino';
+    
+        // Create new coffee cards
+        const productArr = productData.getProduct();
+        const length = productArr.length;
+        for (let iter = 0; iter < length; ++iter) {
+            const category = newArticleCategory.dataset.category;
+            const product = productArr[iter];
+            if (category === product.category) {
+                const coffeeCard = createCoffeeCard(product.productNumber, product.img, product.name, product.desc, product.price, product.rating);
+                
+                newArticleCategory.appendChild(coffeeCard);
+            };
+        };
+
+        // Append new article category to product section
+        productSection.appendChild(newArticleCategory);
+    });
+    
+    macchieeButton.addEventListener('mouseup', () => {
+        // Validate if the button is currently active
+        if (macchiee.classList.contains('active')) return;
+    
+        // Check which button is currently active
+        const currentActive =
+            cuppyccino.classList.contains('active') ? cuppyccino : expressie
+    
+        // Remove active to the current button
+        currentActive.classList.remove('active');
+        // Add active to Cuppyccino
+        macchiee.classList.add('active');
+    
+        // Get the product section
+        const productSection = document.querySelector('.product-section');
+        // Get the current article category
+        const articleCategory = productSection.querySelector('article.category-container');
+        // Remove current article category to the product section
+        productSection.removeChild(articleCategory);
+    
+        // Create a new article category
+        const newArticleCategory = document.createElement('article');
+        newArticleCategory.classList.add('category-container');
+        newArticleCategory.dataset.category = 'Macchiee';
+    
+        // Create new coffee cards
+        const productArr = productData.getProduct();
+        const length = productArr.length;
+        for (let iter = 0; iter < length; ++iter) {
+            const category = newArticleCategory.dataset.category;
+            const product = productArr[iter];
+            if (category === product.category) {
+                const coffeeCard = createCoffeeCard(product.productNumber, product.img, product.name, product.desc, product.price, product.rating);
+                
+                newArticleCategory.appendChild(coffeeCard);
+            };
+        };
+
+        // Append new article category to product section
+        productSection.appendChild(newArticleCategory);
+    });
+    
+    expressieButton.addEventListener('mouseup', () => {
+        // Validate if the button is currently active
+        if (expressie.classList.contains('active')) return;
+    
+        // Check which button is currently active
+        const currentActive =
+            cuppyccino.classList.contains('active') ? cuppyccino : macchiee
+    
+        // Remove active to the current button
+        currentActive.classList.remove('active');
+        // Add active to Cuppyccino
+        expressie.classList.add('active');
+    
+        // Get the product section
+        const productSection = document.querySelector('.product-section');
+        // Get the current article category
+        const articleCategory = productSection.querySelector('article.category-container');
+        // Remove current article category to the product section
+        productSection.removeChild(articleCategory);
+    
+        // Create a new article category
+        const newArticleCategory = document.createElement('article');
+        newArticleCategory.classList.add('category-container');
+        newArticleCategory.dataset.category = 'Expressie';
+    
+        // Create new coffee cards
+        const productArr = productData.getProduct();
+        const length = productArr.length;
+        for (let iter = 0; iter < length; ++iter) {
+            const category = newArticleCategory.dataset.category;
+            const product = productArr[iter];
+            if (category === product.category) {
+                const coffeeCard = createCoffeeCard(product.productNumber, product.img, product.name, product.desc, product.price, product.rating);
+                
+                newArticleCategory.appendChild(coffeeCard);
+            };
+        };
+
+        // Append new article category to product section
+        productSection.appendChild(newArticleCategory);
+    });
 };
 
 export default cuppiespage;
