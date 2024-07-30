@@ -1,5 +1,6 @@
 @import './component-card';
 @import './component_modal';
+@import './component-footer';
 
 body:has(dialog[open])
 {
@@ -7,14 +8,11 @@ body:has(dialog[open])
 }
 
 .cuppiespage {
+    --_global-padding: 30px;
     background-color: $primary-color;
-    padding: 30px;
 }
 
 .cuppiespage .hero {
-    border: 3px solid $light-text_color;
-    // box-shadow: 0 10px 15px #000000b5;
-    // border-radius: 50px;
     width: 100%;
     height: 85dvh;
     overflow: hidden;
@@ -24,7 +22,6 @@ body:has(dialog[open])
 .cuppiespage .hero::after {
     content: '';
     box-shadow: 0 0 30px 20px #000000b5 inset;
-    // border-radius: 50px;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -112,12 +109,12 @@ body:has(dialog[open])
 
 .cuppiespage .wrapper-bubble-list {
     transform: translateX(-50%);
-    bottom: 5%;
+    bottom: 0;
     left: 50%;
 }
 
 .cuppiespage .product-section {
-    margin-top: 90px;
+    margin: 75px var(--_global-padding) 0 var(--_global-padding);
     position: relative;
 }
 
@@ -204,29 +201,6 @@ body:has(dialog[open])
     height: 65px;
     transform: translate(-50%, -50%) rotate(0);
 }
-
-// .cuppiespage .category .title .img-container {
-//     border-radius: 50px;
-//     width: 400px;
-//     height: 100px;
-//     overflow: hidden;
-//     position: relative;
-// }
-
-// .cuppiespage .category .title .img-container::after {
-//     content: '';
-//     backdrop-filter: blur(2px);
-//     height: 100%;
-//     width: 100%;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-// }
-
-// .cuppiespage .category .title img {
-//     width: 100%;
-//     height: 500px;
-// }
 
 .cuppiespage article.category-container {
     padding: 35px 0;

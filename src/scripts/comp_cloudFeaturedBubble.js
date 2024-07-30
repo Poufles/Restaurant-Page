@@ -14,7 +14,7 @@ function createBubbleText () {
         const bubble = document.createElement('div');
         const featuredText = document.createElement('p');
         const featuredPrice = document.createElement('p');
-        const featuredDesc = document.createElement('div');
+        const featuredDesc = document.createElement('p');
         const bubbleAction = document.createElement('button');
 
         // Add attribute(s) and class(es) to bubble action
@@ -31,7 +31,7 @@ function createBubbleText () {
         featuredPrice.classList.add('featured-price');
         featuredPrice.setAttribute('id', 'price');
         // Add text to price
-        featuredPrice.textContent = `| ${price}`;
+        featuredPrice.textContent = `| $${price}`;
 
         // Add attribute(s) and class(es) to featured text
         featuredText.classList.add('featured-name');

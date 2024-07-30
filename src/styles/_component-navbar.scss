@@ -1,42 +1,20 @@
 header.comp_nav {
-    background-image: radial-gradient(circle at center, $primary-color, $accent-color);
-    border-radius: 50px;
-    box-shadow: 0px 5px 5px -3px $dark-text_color;
-    transform: translateX(-50%);
+    background-color: $accent-color;
+    box-shadow: 5px 5px $dark-text_color;
+    transition: 0.3s;
     position: fixed;
-    bottom: 2%;
-    left: 50%;
     z-index: 50;
 }
 
 nav {
-    width: 550px;
-    height: 55px;
+    padding: 10px 30px;
+    width: 475px;
     display: flex;
     transition: 0.3s;
-    position: relative;
-}
-
-nav:hover {
-    height: 65px;
-}
-
-.comp_nav .wrapper-button {
-    transform: translate(-50%, 50%);
-    position: absolute;
-    bottom: 50%;
-}
-
-.comp_nav .wrapper-button:nth-of-type(1) {
-    left: 20%;
-}
-
-.comp_nav .wrapper-button:nth-of-type(2) {
-    left: 50%;
-}
-
-.comp_nav .wrapper-button:nth-of-type(3) {
-    left: 80%;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .comp_nav .items {
@@ -61,7 +39,12 @@ nav:hover {
 }
 
 .comp_nav .items:hover {
-    color: $dark-text_color;
+    color: $secondary-color;
+}
+
+.comp_nav:has(.items:hover) {
+    background-color: $dark-text_color;
+    box-shadow: 5px 5px $light-text_color;
 }
 
 .comp_nav .items::before, .comp_nav .items::after {

@@ -1,7 +1,12 @@
-import image from './images.js';
+import images from './images.js';
 import contentpage from './contentPage.js';
-import cloudBubble from './comp_cloudFeaturedBubble.js'
+import cuppiespage from './page_cuppiespage.js';
+import navbar from './comp_navbar.js';
+import cloudBubble from './comp_cloudFeaturedBubble.js';
+import loading from './comp_loading.js';
+import { createModal } from './comp_product_card_and_modal.js';
 import { createGitHubSVG, createInstagramSVG, createTwitterSVG } from './createSVG.js';
+import { productData as pd } from './products.js';
 
 const homepage = function () {
     let banner;
@@ -22,8 +27,11 @@ const homepage = function () {
         // Append sides to banner
         banner.appendChild(sideLeft);
         banner.appendChild(sideRight);
-        
+
         contentpage.appendContentPage(banner);
+
+        // // Add event listener to order button
+        orderButton()
     };
 
     const removePage = () => {
@@ -38,16 +46,24 @@ const homepage = function () {
 }();
 
 function createSideLeft() {
+    // Get product data
+    const products = pd.getProduct();
+    // Initialize featured being 0(First Cuppyccino)
+    const c1 = products[0];
+
     const sideLeft = document.createElement('div');
 
     // Define bubble text
     const bubbleText = cloudBubble();
-    bubbleText.bubbleText('Cuppychino', '$4.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
+    bubbleText.bubbleText(c1.name, c1.price, c1.desc);
+
+    // Get images
+    const img = images.getImages();
 
     // Defining featured products
-    const featured1 = image.createImage('/src/assets/pexels-tyler-nix-1259808-2396220.jpg');
-    const featured2 = image.createImage('/src/assets/pexels-rachel-claire-5865232.jpg');;
-    const featured3 = image.createImage('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg');
+    const featured1 = images.createImage(img[0]);
+    const featured2 = images.createImage(img[7]);
+    const featured3 = images.createImage(img[11]);
 
     // Creating featured array
     const featuredArr = []
@@ -210,16 +226,67 @@ function featuredBubbleListener(buttonEl, featuredBubble) {
             };
         });
 
+        // Get products
+        const products = pd.getProduct();
+        // "Featured" are as follows:
+        // Cuppyccino (First in array)
+        const c1 = products[0];
+        // Macchiee (7th in array)
+        const m1 = products[7];
+        // Expressie (11th in array)
+        const e1 = products[11];
+
         // Depending on the button, change the content
         // of the featured bubble/cloud
         if (featuredNo == 1) {
-            featuredBubble.bubbleText('Cuppychino', '$4.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?')
+            featuredBubble.bubbleText(c1.name, c1.price, c1.desc);
+            orderButton();
         } else if (featuredNo == 2) {
-            featuredBubble.bubbleText('Mochy', '$3.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
+            featuredBubble.bubbleText(m1.name, m1.price, m1.desc);
+            orderButton();
         } else {
-            featuredBubble.bubbleText('Expressive', '$5.99', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quisquam velit assumenda harum. Officiis nostrum quibusdam et nisi recusandae in?');
+            featuredBubble.bubbleText(e1.name, e1.price, e1.desc);
+            orderButton();
         };
     });
 };
+
+function orderButton() {
+    // Add event listener to order button
+    const orderButton = document.querySelector('.page .side.left .bubble-action');
+
+    orderButton.addEventListener('mouseup', () => {
+        loading.playAnimation();
+        setTimeout(() => {
+            navbar.positionComponent('nav-br');
+            homepage.removePage();
+            cuppiespage.createPage();
+
+            const featuredElements = cuppiespage.getComponent().querySelectorAll('.page .hero .featured-banner');
+            const products = pd.getProduct();
+            let selectedProduct;
+
+            featuredElements.forEach(element => {
+                // Validate which featured item is currently shown
+                if (!element.classList.contains('opacity-none')) {
+                    for (let iter = 0; iter < products.length; ++iter) {
+                        // Compare images to get the right shown featured item
+                        if (products[iter].img === element.src) {
+                            selectedProduct = products[iter];
+                            break;
+                        };
+                    };
+                };
+            });
+
+            // Create modal
+            setTimeout(() => {
+                const modal = createModal(selectedProduct.img, selectedProduct.name, selectedProduct.desc);
+                contentpage.appendContentPage(modal);
+                modal.showModal();
+            }, 2100);
+        }, 2000);
+    });
+}
 
 export default homepage;

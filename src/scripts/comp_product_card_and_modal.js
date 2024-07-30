@@ -66,6 +66,7 @@ function createCoffeeCard(productNo, image, name, desc, price, rate) {
     card.dataset.product = productNo;
     card.classList.add('card');
     card.classList.add('product');
+    card.classList.add('scale-1');
 
     // Appending containers to card
     card.appendChild(productImg);
@@ -155,8 +156,8 @@ function createModal(image, name, desc) {
     // Append quantity text, buttons, and svg to their container
     quantityContainer.appendChild(quantity);
     quantityContainer.appendChild(quantitySVG);
-    quantityContainer.appendChild(quantityButtonAdd);
     quantityContainer.appendChild(quantityButtonSub);
+    quantityContainer.appendChild(quantityButtonAdd);
 
     // Add attribute(s) and class(es) to quantity container
     quantityContainer.classList.add('item-quantity');
@@ -279,3 +280,4 @@ function createModal(image, name, desc) {
 };
 
 export default createCoffeeCard;
+export  { createModal };

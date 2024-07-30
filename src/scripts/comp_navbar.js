@@ -5,10 +5,10 @@ import aboutpage from './page_aboutpage.js';
 
 const navbar = function () {
     let component;
+    const header = document.createElement('header');
 
     // Create component function
     const createComponent = () => {
-        const header = document.createElement('header');
         const nav = document.createElement('nav');
         const wrapperArr = [];
         const itemArr = []
@@ -46,24 +46,9 @@ const navbar = function () {
 
         // Adding class(es) to the header
         header.classList.add('comp_nav');
+        header.classList.add('nav-bm');
         // Appending nav to the header
         header.appendChild(nav)
-
-        // Add event listeners to navbar buttons
-        const navButtons = nav.querySelectorAll('button.items');
-        navButtons.forEach(navButton => {
-            navButton.addEventListener('mousedown', () => {
-                navButton.classList.add('button-press');
-            });
-            
-            navButton.addEventListener('mouseup', () => {
-                navButton.classList.remove('button-press');
-            });
-            
-            navButton.addEventListener('mouseleave', () => {
-                navButton.classList.remove('button-press');
-            });
-        });
 
         home.addEventListener('mouseup', () => {
             if (document.querySelector('.homepage') === null) {
@@ -73,6 +58,7 @@ const navbar = function () {
 
                 loading.playAnimation()
                 setTimeout(() => {
+                    positionComponent('nav-bm');
                     currentPage.removePage();
                     homepage.createPage();
                 }, 2000);
@@ -87,6 +73,7 @@ const navbar = function () {
 
                 loading.playAnimation()
                 setTimeout(() => {
+                    positionComponent('nav-br');
                     currentPage.removePage();
                     cuppiespage.createPage();
                 }, 2000);
@@ -101,6 +88,7 @@ const navbar = function () {
 
                 loading.playAnimation()
                 setTimeout(() => {
+                    positionComponent('nav-br');
                     currentPage.removePage();
                     aboutpage.createPage();
                 }, 2000);
@@ -117,6 +105,14 @@ const navbar = function () {
         component = undefined;
     };
 
+    const positionComponent = (position) => {
+        header.classList.remove('nav-lr');
+        header.classList.remove('nav-br');
+        header.classList.remove('nav-bl');
+        header.classList.remove('nav-bm');
+        header.classList.add(position);
+    };
+
     // Get component
     const getComponent = () => component;
 
@@ -124,6 +120,7 @@ const navbar = function () {
         createComponent,
         deleteComponent,
         getComponent,
+        positionComponent,
     };
 }();
 

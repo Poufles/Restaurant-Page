@@ -6,6 +6,7 @@ dialog {
     transition: 
     opacity 0.5s allow-discrete,
     transform 0.5s allow-discrete;
+    z-index: -1;
 }
 
 dialog::backdrop {

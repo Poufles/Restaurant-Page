@@ -1,4 +1,5 @@
-// import '../styles/main.scss';
+import images from './images.js';
+import '../styles/main.scss';
 // Importing components
 import loading from './comp_loading.js';
 import navbar from './comp_navbar.js';
@@ -26,29 +27,32 @@ window.addEventListener('load', () => {
         This simply acts as the "database" but array
         and objects are utilized.
     */
+
+    // Get images
+    const img = images.getImages();
    
     // Cuppyccino
-    const c1 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Caramelized Chilly Cuppyccino', 5.99, 'desc');
-    const c2 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Amer-Doux Cuppyccino', 5.99, 'desc');
-    const c3 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Warm Fantasy Cuppyccino', 5.49, 'desc');
-    const c4 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Chocoholic Delight Cuppyccino', 5.49, 'desc');
-    const c5 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Noble Elegance Cuppyccino', 5.49, 'desc');
-    const c6 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Dark Desire Cuppyccino', 4.99, 'desc');
-    const c7 = Product('/src/assets/pexels-oznur-taskan-172633297-12896257.jpg', 'Cuppyccino', 'Bachelor\'s Cuppychino');
+    const c1 = Product(img[0], 'Cuppyccino', 'Caramelized Chilly Cuppyccino', 5.99, 'desc');
+    const c2 = Product(img[1], 'Cuppyccino', 'Amer-Doux Cuppyccino', 5.99, 'desc');
+    const c3 = Product(img[2], 'Cuppyccino', 'Warm Fantasy Cuppyccino', 5.49, 'desc');
+    const c4 = Product(img[3], 'Cuppyccino', 'Chocoholic Delight Cuppyccino', 5.49, 'desc');
+    const c5 = Product(img[4], 'Cuppyccino', 'Noble Elegance Cuppyccino', 5.49, 'desc');
+    const c6 = Product(img[5], 'Cuppyccino', 'Dark Desire Cuppyccino', 4.99, 'desc');
+    const c7 = Product(img[6], 'Cuppyccino', 'Bachelor\'s Cuppychino', 4.59, 'desc');
 
     // Macchiee
-    const m1 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchiee', 'Graceful Touch Macchiee', 5.49, 'desc');
-    const m2 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchiee', 'Cloudy Sun Macchiee', 4.99, 'desc');
-    const m3 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchiee', 'Hazel Hug Macchiee', 4.99, 'desc');
-    const m4 = Product('/src/assets/nathan-dumlao-tA90pRfL2gM-unsplash.jpg', 'Macchiee', 'Macchiee-ing Taste', 4.49, 'desc');
+    const m1 = Product(img[7], 'Macchiee', 'Graceful Touch Macchiee', 5.49, 'desc');
+    const m2 = Product(img[8], 'Macchiee', 'Cloudy Sun Macchiee', 4.99, 'desc');
+    const m3 = Product(img[9], 'Macchiee', 'Hazel Hug Macchiee', 4.99, 'desc');
+    const m4 = Product(img[10], 'Macchiee', 'Macchiee-ing Taste', 4.49, 'desc');
 
     // Expressie
-    const e1 = Product('src/assets/pexels-chevanon-312418.jpg', 'Expressie', 'Ame-Sœur Expressie', 5.49, 'desc');
-    const e2 = Product('src/assets/pexels-chevanon-312418.jpg', 'Expressie', 'Serene Warmth Expressie', 5.49, 'desc');
-    const e3 = Product('src/assets/pexels-chevanon-312418.jpg', 'Expressie', 'Happy Hour Expressie', 4.99, 'desc');
-    const e4 = Product('src/assets/pexels-chevanon-312418.jpg', 'Expressie', 'Zenful Sip Expressie', 4.49, 'desc');
-    const e5 = Product('src/assets/pexels-chevanon-312418.jpg', 'Expressie', 'Lover\'s Touch Expressie', 4.49, 'desc');
-    const e6 = Product('src/assets/pexels-chevanon-312418.jpg', 'Expressie', 'Breaking Point Expressie', 3.99, 'desc');
+    const e1 = Product(img[11], 'Expressie', 'Ame-Sœur Expressie', 5.49, 'desc');
+    const e2 = Product(img[12], 'Expressie', 'Serene Warmth Expressie', 5.49, 'desc');
+    const e3 = Product(img[13], 'Expressie', 'Happy Hour Expressie', 4.99, 'desc');
+    const e4 = Product(img[14], 'Expressie', 'Zenful Sip Expressie', 4.49, 'desc');
+    const e5 = Product(img[15], 'Expressie', 'Lover\'s Touch Expressie', 4.49, 'desc');
+    const e6 = Product(img[16], 'Expressie', 'Breaking Point Expressie', 3.99, 'desc');
 
     // Creating an array to store each variables
     const coffeeArr = [];

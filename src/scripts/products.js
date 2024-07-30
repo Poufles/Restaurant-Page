@@ -3,8 +3,8 @@ const productData = function() {
     
     const addProduct = (product) => {
         const productNumber = productArr.length;
-        const rating = Math.floor(Math.random() * 5);
-        
+        const rating = Math.round((Math.random() * (5.001 - 3) + 3) * 10) / 10;
+
         const newProduct = {
             productNumber,
             img : product.productImage,

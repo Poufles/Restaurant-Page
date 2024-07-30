@@ -2,10 +2,6 @@
     opacity: 0;
 }
 
-.button-press {
-    background-color: $accent-color !important;
-}
-
 .display-none {
     display: none;
 }
@@ -16,6 +12,27 @@
 
 .scale-05 {
     transform: scale(0.5);
+}
+
+.nav-lr {
+    top: 2%;
+    right: 2%;
+}
+
+.nav-br {
+    bottom: 2%;
+    right: 2%;
+}
+
+.nav-bl {
+    bottom: 2%;
+    left: 2%;
+}
+
+.nav-bm {
+    transform: translateX(-50%);
+    bottom: 2%;
+    left: 50%;
 }
 
 .texture-overlay {

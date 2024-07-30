@@ -1,0 +1,87 @@
+footer {
+    background-image: url(/src/assets/pexels-luiza-maria-scurtu-883871-2102037.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-top: 150px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+footer::after {
+    content: '';
+    box-shadow: 0 0 20px 15px #00000088 inset;
+    backdrop-filter: blur(20px) ;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+footer>* {
+    font-size: 1.3rem;
+    color: $light-text_color;
+    text-align: center;
+    z-index: 1;
+    text-shadow: 0 2px #000;
+}
+
+footer .disclaimer {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+footer .disclaimer-text {
+    max-width: 700px;
+    min-width: 300px;
+    position: relative;
+}
+
+footer .disclaimer-text::before {
+    --_width: 110%;
+    content: '';
+    width: var(--_width);
+    position: absolute;
+    top: 0;
+    left: calc(var(--_width) / -22);
+}
+
+footer .disclaimer-text span {
+    background-color: transparent;
+    border: none;
+    font-size: 1.9rem;
+    text-shadow: 1px 1px $dark-text_color;
+}
+
+footer .disclaimer-text span::after {
+    content: 'Life in a Cup';
+    font-size: 0.4rem;
+    width: max-content;
+    text-shadow: 0 0 $dark-text_color;
+    position: absolute;
+    bottom: 73%;
+    right: 5%;
+}
+
+footer li {
+    list-style: none;
+}
+
+footer .socials {
+    margin-top: 11px;
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .socials svg {
+    fill: $light-text_color;
+}
