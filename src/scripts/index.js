@@ -19,7 +19,8 @@ window.addEventListener('load', () => {
     setTimeout(() => {
         homepage.createPage();
         navbar.createComponent();
-        contentpage.prependContentPage(navbar.getComponent())
+        contentpage.prependContentPage(navbar.getNavbar())
+        contentpage.prependContentPage(navbar.getBackdrop())
     }, 2000);
 
     /*

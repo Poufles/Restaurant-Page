@@ -24,6 +24,7 @@ const cuppiespage = function () {
         // Add attribute(s) and class(es) to container
         container.classList.add('page');
         container.classList.add('cuppiespage');
+        container.dataset.page = 'cuppiespage';
         contentpage.appendContentPage(container);
     };
 

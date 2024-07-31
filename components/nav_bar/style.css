@@ -7,84 +7,125 @@
     --dark-text_color: #101015;
 }
 
+body {
+    background-color: var(--primary-color);
+    overflow: hidden;
+}
+
+.brand-name {
+    color: var(--light-text_color);
+    font-family: var(--font-stack-accent);
+    text-transform: capitalize;
+    position: relative;
+    transform: rotate(-3deg);
+}
+
+.brand-name::after {
+    content: 'Life in a Cup';
+    font-size: 1rem;
+    width: max-content;
+    position: absolute;
+    bottom: 73%;
+    right: 5%;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-header.comp_nav {
-    background-color: var(--dark-text_color);
-    border-radius: 70px;
-    transform: translateX(-50%);
+.nav-backdrop {
+    backdrop-filter: blur(3px);
+    height: 100%;
+    width: 100%;
     position: absolute;
-    bottom: 1%;
+    top: 0;
+    left: 0;
+}
+
+.nav-backdrop.inactive {
+    display: none;
+}
+
+.comp_nav {
+    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 100%;
     left: 50%;
     z-index: 50;
 }
 
-nav {
-    width: 600px;
-    height: 60px;
-    display: flex;
+.comp_nav nav {
     position: relative;
-    transition: 0.5s;
 }
 
-nav:hover {
-    height: 60px;
+.comp_nav nav button {
+    cursor: pointer;
+    position: relative;
 }
 
-.comp_nav .wrapper-button {
-    transform: translate(-50%, 50%);
-    position: absolute;
-    bottom: 100%;
+.comp_nav .page-container {
+    background-color: var(--light-text_color);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 15px -3px var(--dark-text_color);
+    color: var(--dark-text_color);
+    font-size: 3rem;
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
 }
 
-.comp_nav .wrapper-button:nth-of-type(1) {
-    left: 30%;
-}
-
-.comp_nav .wrapper-button:nth-of-type(2) {
+.comp_nav .page-container p {
+    color: var(--dark-text_color);
+    transform: rotate(0) translateX(-50%);
+    bottom: 15%;
     left: 50%;
 }
 
-.comp_nav .wrapper-button:nth-of-type(3) {
-    left: 70%;
+.comp_nav .page-container p::after {
+    right: 26%;
+    font-size: 0.8rem;
 }
 
-.comp_nav .items {
-    background-color: var(--light-text_color);
-    border: 7px solid var(--dark-text_color);
-    border-radius: 50%;
-    font-size: 1.3rem;
-    min-width: max-content;
-    width: 65px;
-    min-height: max-content;
-    height: 65px;
-    transition: 0.3s;
-    position: relative;
-}
-
-.comp_nav .items::before, .comp_nav .items::after {
-    content: '';
-    height: 20px;
-    width: 20px;
+.comp_nav .pages .item {
+    list-style-type: none;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease-in-out;
     position: absolute;
-    bottom: 50%;
+    z-index: -1;
 }
 
-.comp_nav .items::before {
-    background-image: radial-gradient(circle at left top, transparent 20px, var(--dark-text_color )10px);
-    right: 100%;
+.comp_nav .pages .item:first-of-type {
+    top: -10%;
+    left: 0;
+}
+.comp_nav .pages .item:nth-of-type(2) {
+    top: -30%;
+    left: 50%;
 }
 
-.comp_nav .items::after {
-    background-image: radial-gradient(circle at right top, transparent 20px, var(--dark-text_color )10px);
+.comp_nav .pages .item:last-of-type {
+    top: -10%;
     left: 100%;
 }
 
-.comp_nav .items:hover {
-    border-radius: 30px;
-    padding: 0 20px;
+.comp_nav .pages .item button {
+    background-color: var(--light-text_color);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 15px -3px var(--dark-text_color);
+    width: 85px;
+    height: 85px;
+}
+
+.comp_nav .pages .item button svg {
+    width: 30px;
+    height: 30px;
+}
+
+.comp_nav .pages .item.hide {
+    top: 50% !important;
+    left: 50% !important;
 }

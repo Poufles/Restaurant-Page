@@ -10,23 +10,33 @@
 </head>
 
 <body>
+    <div class="nav-backdrop inactive"></div>
     <header class="comp_nav">
         <nav>
-            <div class="wrapper-button">
-                <button type="button" class="items active" id="item-1">
-                    Home
+            <div class="action">
+                <button class="page-container">
+                    <p class="brand-name">Cuppy</p>
                 </button>
             </div>
-            <div class="wrapper-button">
-                <button type="button" class="items" id="item-2">
-                    Cuppies
-                </button>
-            </div>
-            <div class="wrapper-button">
-                <button type="button" class="items" id="item-3">
-                    About
-                </button>
-            </div>
+            <ul class="pages">
+                <li class="item hide">
+                    <button type="button" class="homepage">
+                        <?xml version="1.0" ?><svg baseProfile="tiny" height="24px" id="Layer_1" version="1.2" viewBox="0 0 24 24" width="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M12,3c0,0-6.186,5.34-9.643,8.232C2.154,11.416,2,11.684,2,12c0,0.553,0.447,1,1,1h2v7c0,0.553,0.447,1,1,1h3  c0.553,0,1-0.448,1-1v-4h4v4c0,0.552,0.447,1,1,1h3c0.553,0,1-0.447,1-1v-7h2c0.553,0,1-0.447,1-1c0-0.316-0.154-0.584-0.383-0.768  C18.184,8.34,12,3,12,3z"/></svg>
+                        <p class="text">Home</p>
+                    </button>
+                </li>
+                <li class="item hide">
+                    <button type="button" class="cuppies">
+                        <p class="text">Cuppies</p>
+                    </button>
+                </li>
+                <li class="item hide">
+                    <button type="button" class="about">
+                        <?xml version="1.0" ?><svg class="bi bi-info-circle-fill" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+                        <p class="text">About</p>
+                    </button>
+                </li>
+            </ul>
         </nav>
     </header>
     <div id="content">

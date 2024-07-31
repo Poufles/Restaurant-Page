@@ -1,56 +1,95 @@
-header.comp_nav {
-    background-color: $accent-color;
-    box-shadow: 5px 5px $dark-text_color;
-    transition: 0.3s;
-    position: fixed;
+.nav-backdrop {
+    backdrop-filter: blur(3px);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 50;
 }
 
-nav {
-    padding: 10px 30px;
-    width: 475px;
-    display: flex;
-    transition: 0.3s;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: space-between;
+.nav-backdrop.inactive {
+    display: none;
 }
 
-.comp_nav .items {
-    background-color: transparent;
-    border: 0;
-    border-radius: 30px;
-    color: $light-text_color;
-    padding: 7px 20px;
-    min-width: max-content;
-    width: 65px;
-    transition: 0.2s;
+.comp_nav {
+    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    z-index: 50;
+}
+
+.comp_nav nav {
     position: relative;
 }
 
-.comp_nav :is(#item-1, #item-3) {
-    font-size: 1.3rem;
+.comp_nav nav button {
+    cursor: pointer;
+    position: relative;
 }
 
-.comp_nav #item-2 {
-    font-family: $font-stack-accent;
-    font-size: 2rem;
+.comp_nav .page-container {
+    background-color: $light-text_color;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 15px -3px $dark-text_color;
+    color: $dark-text_color;
+    font-size: 3rem;
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
 }
 
-.comp_nav .items:hover {
-    color: $secondary-color;
+.comp_nav .page-container p {
+    color: $dark-text_color;
+    transform: rotate(0) translateX(-50%);
+    bottom: 15%;
+    left: 50%;
 }
 
-.comp_nav:has(.items:hover) {
-    background-color: $dark-text_color;
-    box-shadow: 5px 5px $light-text_color;
+.comp_nav .page-container p::after {
+    right: 26%;
+    font-size: 0.8rem;
 }
 
-.comp_nav .items::before, .comp_nav .items::after {
-    content: '';
-    height: 20px;
-    width: 20px;
+.comp_nav .pages .item {
+    list-style-type: none;
+    transform: translate(-50%, -50%);
+    transition: 0.3s ease-in-out;
     position: absolute;
-    bottom: 50%;
+    z-index: -1;
+}
+
+.comp_nav .pages .item:first-of-type {
+    top: -10%;
+    left: 0;
+}
+.comp_nav .pages .item:nth-of-type(2) {
+    top: -30%;
+    left: 50%;
+}
+
+.comp_nav .pages .item:last-of-type {
+    top: -10%;
+    left: 100%;
+}
+
+.comp_nav .pages .item button {
+    background-color: $light-text_color;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 15px -3px $dark-text_color;
+    width: 85px;
+    height: 85px;
+}
+
+.comp_nav .pages .item button svg {
+    width: 30px;
+    height: 30px;
+}
+
+.comp_nav .pages .item.hide {
+    top: 50% !important;
+    left: 50% !important;
 }

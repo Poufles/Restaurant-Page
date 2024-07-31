@@ -24,6 +24,7 @@ const homepage = function () {
         // Add attribute(s) and class(es) to banner
         banner.classList.add('page');
         banner.classList.add('homepage');
+        banner.dataset.page = 'homepage';
         // Append sides to banner
         banner.appendChild(sideLeft);
         banner.appendChild(sideRight);
@@ -41,7 +42,7 @@ const homepage = function () {
 
     return {
         createPage,
-        removePage
+        removePage,
     }
 }();
 
