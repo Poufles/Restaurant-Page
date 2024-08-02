@@ -22,11 +22,6 @@ function createBubbleText () {
         // Add text to bubble action
         bubbleAction.textContent = 'Order Now';
 
-        // // Add attribute(s) and class(es) to featured description
-        // featuredDesc.classList.add('featured-desc');
-        // // Add text to featured description
-        // featuredDesc.textContent = desc;
-
         // Add attribute(s) and class(es) to price
         featuredPrice.classList.add('featured-price');
         featuredPrice.setAttribute('id', 'price');

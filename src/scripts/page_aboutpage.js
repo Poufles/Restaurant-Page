@@ -107,9 +107,12 @@ const aboutpage = function () {
         container = undefined;
     };
 
+    const getComponent = () => container;
+
     return {
         createPage,
         removePage,
+        getComponent,
     }
 }();
 

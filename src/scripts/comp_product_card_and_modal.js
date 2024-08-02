@@ -276,6 +276,34 @@ function createModal(image, name, desc) {
         };
     });
 
+    // Add event listeners to sizes
+    sizeButtonSmall.addEventListener('mouseup', () => {
+        const buttons = sizeContainer.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        sizeButtonSmall.classList.add('active');
+    });
+    
+    sizeButtonMedium.addEventListener('mouseup', () => {
+        const buttons = sizeContainer.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        sizeButtonMedium.classList.add('active');
+    });
+    
+    sizeButtonLarge.addEventListener('mouseup', () => {
+        const buttons = sizeContainer.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+        });
+
+        sizeButtonLarge.classList.add('active');
+    });
+
     return dialog;
 };
 

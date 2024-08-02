@@ -40,9 +40,12 @@ const homepage = function () {
         banner = undefined;
     };
 
+    const getComponent = () => banner;
+
     return {
         createPage,
         removePage,
+        getComponent,
     }
 }();
 

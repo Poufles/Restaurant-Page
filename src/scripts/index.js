@@ -10,6 +10,8 @@ import homepage from './page_homepage.js';
 
 // Importing Products
 import { productData as pd, Product } from './products.js';
+import aboutpage from './page_aboutpage.js';
+import cuppiespage from './page_cuppiespage.js';
 
 // Initial load
 window.addEventListener('load', () => {
@@ -88,9 +90,13 @@ window.addEventListener('scroll', () => {
     const height = d.offsetHeight * 0.95;
     const nav = navbar.getNavbar();
 
-    if (offset >= height) {
-        nav.classList.add('nav-hide-animation');
+    if (cuppiespage.getComponent() != undefined) {
+        if (offset >= height) {
+            nav.classList.add('nav-hide-animation');
+        } else {
+            nav.classList.remove('nav-hide-animation');
+        };
     } else {
         nav.classList.remove('nav-hide-animation');
-    };
+    }
 });
