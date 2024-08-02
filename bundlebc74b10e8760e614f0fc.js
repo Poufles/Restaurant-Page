@@ -2080,6 +2080,11 @@ function createSideRight() {
   instagramLink.appendChild(instagram);
   xLink.appendChild(twitter);
 
+  // Add links to anchor
+  gitHubLink.href = 'https://github.com/Poufles';
+  instagramLink.href = 'https://www.instagram.com/poufsadev/';
+  xLink.href = 'https://x.com/Vqliant';
+
   // Add attribute(s) and class(es) to social container
   containerSocial.classList.add('container-social');
   // Append svgs to social container
@@ -5018,4 +5023,4 @@ window.addEventListener('scroll', function () {
 });
 /******/ })()
 ;
-//# sourceMappingURL=bundle6ec7fad2f2fb984d8337.js.map
+//# sourceMappingURL=bundlebc74b10e8760e614f0fc.js.map
