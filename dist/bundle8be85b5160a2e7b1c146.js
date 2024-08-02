@@ -36,11 +36,6 @@ function createBubbleText() {
     // Add text to bubble action
     bubbleAction.textContent = 'Order Now';
 
-    // // Add attribute(s) and class(es) to featured description
-    // featuredDesc.classList.add('featured-desc');
-    // // Add text to featured description
-    // featuredDesc.textContent = desc;
-
     // Add attribute(s) and class(es) to price
     featuredPrice.classList.add('featured-price');
     featuredPrice.setAttribute('id', 'price');
@@ -799,6 +794,29 @@ function createModal(image, name, desc) {
     }
     ;
   });
+
+  // Add event listeners to sizes
+  sizeButtonSmall.addEventListener('mouseup', function () {
+    var buttons = sizeContainer.querySelectorAll('button');
+    buttons.forEach(function (button) {
+      button.classList.remove('active');
+    });
+    sizeButtonSmall.classList.add('active');
+  });
+  sizeButtonMedium.addEventListener('mouseup', function () {
+    var buttons = sizeContainer.querySelectorAll('button');
+    buttons.forEach(function (button) {
+      button.classList.remove('active');
+    });
+    sizeButtonMedium.classList.add('active');
+  });
+  sizeButtonLarge.addEventListener('mouseup', function () {
+    var buttons = sizeContainer.querySelectorAll('button');
+    buttons.forEach(function (button) {
+      button.classList.remove('active');
+    });
+    sizeButtonLarge.classList.add('active');
+  });
   return dialog;
 }
 ;
@@ -1326,9 +1344,13 @@ var aboutpage = function () {
     _contentPage_js__WEBPACK_IMPORTED_MODULE_0__["default"].removeContentPage(container);
     container = undefined;
   };
+  var getComponent = function getComponent() {
+    return container;
+  };
   return {
     createPage: createPage,
-    removePage: removePage
+    removePage: removePage,
+    getComponent: getComponent
   };
 }();
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (aboutpage);
@@ -1903,9 +1925,13 @@ var homepage = function () {
     _contentPage_js__WEBPACK_IMPORTED_MODULE_1__["default"].removeContentPage(banner);
     banner = undefined;
   };
+  var getComponent = function getComponent() {
+    return banner;
+  };
   return {
     createPage: createPage,
-    removePage: removePage
+    removePage: removePage,
+    getComponent: getComponent
   };
 }();
 function createSideLeft() {
@@ -4744,6 +4770,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _contentPage_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./contentPage.js */ "./src/scripts/contentPage.js");
 /* harmony import */ var _page_homepage_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./page_homepage.js */ "./src/scripts/page_homepage.js");
 /* harmony import */ var _products_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./products.js */ "./src/scripts/products.js");
+/* harmony import */ var _page_aboutpage_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./page_aboutpage.js */ "./src/scripts/page_aboutpage.js");
+/* harmony import */ var _page_cuppiespage_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./page_cuppiespage.js */ "./src/scripts/page_cuppiespage.js");
 
 
 // Importing components
@@ -4755,6 +4783,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Importing Products
+
+
 
 
 // Initial load
@@ -4832,13 +4862,17 @@ window.addEventListener('scroll', function () {
   var offset = d.scrollTop + window.innerHeight;
   var height = d.offsetHeight * 0.95;
   var nav = _comp_navbar_js__WEBPACK_IMPORTED_MODULE_3__["default"].getNavbar();
-  if (offset >= height) {
-    nav.classList.add('nav-hide-animation');
+  if (_page_cuppiespage_js__WEBPACK_IMPORTED_MODULE_8__["default"].getComponent() != undefined) {
+    if (offset >= height) {
+      nav.classList.add('nav-hide-animation');
+    } else {
+      nav.classList.remove('nav-hide-animation');
+    }
+    ;
   } else {
     nav.classList.remove('nav-hide-animation');
   }
-  ;
 });
 /******/ })()
 ;
-//# sourceMappingURL=bundleb7daacdb5c08df460a9d.js.map
+//# sourceMappingURL=bundle8be85b5160a2e7b1c146.js.map
