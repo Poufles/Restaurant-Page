@@ -2145,23 +2145,25 @@ function featuredBubbleListener(buttonEl, featuredBubble) {
     // Expressie (11th in array)
     var e1 = products[11];
 
+    // const featuredButtons = 
+
     // Depending on the button, change the content
     // of the featured bubble/cloud
     if (featuredNo == 1) {
       featuredBubble.bubbleText(c1.name, c1.price, c1.desc);
-      orderButton();
+      orderButton(c1);
     } else if (featuredNo == 2) {
       featuredBubble.bubbleText(m1.name, m1.price, m1.desc);
-      orderButton();
+      orderButton(m1);
     } else {
       featuredBubble.bubbleText(e1.name, e1.price, e1.desc);
-      orderButton();
+      orderButton(e1);
     }
     ;
   });
 }
 ;
-function orderButton() {
+function orderButton(featured) {
   // Add event listener to order button
   var orderButton = document.querySelector('.page .side.left .bubble-action');
   orderButton.addEventListener('mouseup', function () {
@@ -2169,24 +2171,17 @@ function orderButton() {
     setTimeout(function () {
       homepage.removePage();
       _page_cuppiespage_js__WEBPACK_IMPORTED_MODULE_2__["default"].createPage();
-      var featuredElements = _page_cuppiespage_js__WEBPACK_IMPORTED_MODULE_2__["default"].getComponent().querySelectorAll('.page .hero .featured-banner');
       var products = _products_js__WEBPACK_IMPORTED_MODULE_8__.productData.getProduct();
       var selectedProduct;
-      featuredElements.forEach(function (element) {
-        // Validate which featured item is currently shown
-        if (!element.classList.contains('opacity-none')) {
-          for (var iter = 0; iter < products.length; ++iter) {
-            // Compare images to get the right shown featured item
-            if (products[iter].img === element.src) {
-              selectedProduct = products[iter];
-              break;
-            }
-            ;
-          }
-          ;
+      for (var iter = 0; iter < products.length; ++iter) {
+        // Compare images to get the right shown featured item
+        if (featured.img === products[iter].img) {
+          selectedProduct = featured;
+          break;
         }
         ;
-      });
+      }
+      ;
 
       // Create modal
       setTimeout(function () {
@@ -5023,4 +5018,4 @@ window.addEventListener('scroll', function () {
 });
 /******/ })()
 ;
-//# sourceMappingURL=bundlebc74b10e8760e614f0fc.js.map
+//# sourceMappingURL=bundle13ee32d8110d4cfe1534.js.map

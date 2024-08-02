@@ -245,47 +245,42 @@ function featuredBubbleListener(buttonEl, featuredBubble) {
         // Expressie (11th in array)
         const e1 = products[11];
 
+        // const featuredButtons = 
+
         // Depending on the button, change the content
         // of the featured bubble/cloud
         if (featuredNo == 1) {
             featuredBubble.bubbleText(c1.name, c1.price, c1.desc);
-            orderButton();
+            orderButton(c1);
         } else if (featuredNo == 2) {
             featuredBubble.bubbleText(m1.name, m1.price, m1.desc);
-            orderButton();
+            orderButton(m1);
         } else {
             featuredBubble.bubbleText(e1.name, e1.price, e1.desc);
-            orderButton();
+            orderButton(e1);
         };
     });
 };
 
-function orderButton() {
+function orderButton(featured) {
     // Add event listener to order button
     const orderButton = document.querySelector('.page .side.left .bubble-action');
-
     orderButton.addEventListener('mouseup', () => {
         loading.playAnimation();
         setTimeout(() => {
             homepage.removePage();
             cuppiespage.createPage();
 
-            const featuredElements = cuppiespage.getComponent().querySelectorAll('.page .hero .featured-banner');
             const products = pd.getProduct();
             let selectedProduct;
 
-            featuredElements.forEach(element => {
-                // Validate which featured item is currently shown
-                if (!element.classList.contains('opacity-none')) {
-                    for (let iter = 0; iter < products.length; ++iter) {
-                        // Compare images to get the right shown featured item
-                        if (products[iter].img === element.src) {
-                            selectedProduct = products[iter];
-                            break;
-                        };
-                    };
+            for (let iter = 0; iter < products.length; ++iter) {
+                // Compare images to get the right shown featured item
+                if (featured.img === products[iter].img) {
+                    selectedProduct = featured;
+                    break;
                 };
-            });
+            };
 
             // Create modal
             setTimeout(() => {
