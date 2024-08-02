@@ -77,7 +77,7 @@ function createFooter() {
     // Create text for the disclaimer text
     const brand = 'Cuppy';
     const text = 
-        'is a work of fiction. Any names, products, places, and incidents either are products of the author’s imagination or are used fictitiously. Any resemblance to actual events or locales names is entirely coincidental';
+        'is a work of fiction. Any names, products, places, and incidents either are products of the author’s imagination or are used fictitiously. Any resemblance to actual events or locales names is entirely coincidental. Moreover, all photos are used solely as dummy images and all credits are due to their respective owners.';
     const textArr = [];
     textArr.push(brand);
     textArr.push(text);
