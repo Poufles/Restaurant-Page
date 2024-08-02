@@ -9,10 +9,6 @@
 @import './component-loading';
 @import './component-navbar';
 
-// Imports of pages
-@import './page-cuppiespage';
-@import './page-about';
-
 body {
     background-color: $primary-color;
     position: relative;
@@ -33,6 +29,18 @@ svg {
     height: 100dvh;
     min-height: 400px;
     display: flex;
+}
+
+.texture-overlay {
+    background-image: url(../assets/pexels-janakukebal-6496463.jpg);
+    background-size: cover;
+    filter: blur(3px) brightness(0.7);
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .side {
@@ -141,3 +149,17 @@ svg {
     bottom: 30px;
     right: 30px;
 }
+
+
+// Imports of pages
+@import './page-cuppiespage';
+@import './page-about';
+
+// Imports of responsive
+@import './responsive_page-main';
+@import './responsive_page-cuppiespage';
+@import './responsive_page-about';
+@import './responsive_component-navbar';
+@import './responsive_component-card';
+@import './responsive_component-footer';
+@import './responsive_component-modal';

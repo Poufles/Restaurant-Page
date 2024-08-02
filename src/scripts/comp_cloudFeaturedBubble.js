@@ -22,16 +22,16 @@ function createBubbleText () {
         // Add text to bubble action
         bubbleAction.textContent = 'Order Now';
 
-        // Add attribute(s) and class(es) to featured description
-        featuredDesc.classList.add('featured-desc');
-        // Add text to featured description
-        featuredDesc.textContent = desc;
+        // // Add attribute(s) and class(es) to featured description
+        // featuredDesc.classList.add('featured-desc');
+        // // Add text to featured description
+        // featuredDesc.textContent = desc;
 
         // Add attribute(s) and class(es) to price
         featuredPrice.classList.add('featured-price');
         featuredPrice.setAttribute('id', 'price');
         // Add text to price
-        featuredPrice.textContent = `| $${price}`;
+        featuredPrice.textContent = `$${price}`;
 
         // Add attribute(s) and class(es) to featured text
         featuredText.classList.add('featured-name');
@@ -43,7 +43,7 @@ function createBubbleText () {
         // Append all child to bubble 
         bubble.appendChild(featuredText);
         bubble.appendChild(featuredPrice)
-        bubble.appendChild(featuredDesc);
+        // bubble.appendChild(featuredDesc);
         bubble.appendChild(bubbleAction);
 
         // Append bubble to wrapper

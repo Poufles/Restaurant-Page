@@ -1,0 +1,262 @@
+@media screen and (max-width: 1620px) {
+    .bubble-text .featured-name {
+        font-size: 2rem;
+    }
+
+    .bubble-text .featured-price {
+        font-size: 2.3rem;
+    }
+
+    .bubble-action {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .bubble-text .featured-name {
+        width: 200px;
+        font-size: 1.7rem;
+    }
+
+    .bubble-text .featured-price {
+        font-size: 2rem;
+    }
+
+    .bubble-action {
+        font-size: 1.3rem;
+        width: max-content;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .cuppiespage article.category-container {
+        grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+        grid-gap: 20px;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .bubble-text .featured-name {
+        width: 150px;
+        font-size: 1.7rem;
+    }
+
+    .bubble-text .featured-price {
+        font-size: 2rem;
+    }
+
+    .bubble-action {
+        font-size: 1.3rem;
+        width: max-content;
+    }
+}
+
+
+
+@media screen and (max-width: 950px) {
+    .cuppiespage .featured-item {
+        transform: translateY(-50%);
+        left: 10%;
+    }
+
+    .cuppiespage .top-layer {
+        padding: 45px 30px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .cuppiespage .header-text .detail .desc {
+        font-size: 1.3rem;
+        text-align: center;
+        width: 600px;
+    }
+
+    .cuppiespage .header-text .category h1 {
+        font-size: 2rem;
+        text-shadow: 0 3px #000;
+    }
+
+    .cuppiespage .header-text .category h1::before {
+        width: 75px;
+        height: 75px;
+    }
+
+    .cuppiespage .header-text .category h1.active::before {
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .cuppiespage .logo {
+        font-size: 6rem;
+    }
+
+    .cuppiespage .logo::after {
+        font-size: 1.2rem;
+    }
+
+    .cuppiespage .featured-item {
+        transform: translate(-50%, -50%);
+        top: 25%;
+        left: 50%;
+    }
+
+    .cuppiespage .featured-bubble {
+        flex-direction: row;
+    }
+
+    .cuppiespage .top-layer {
+        padding: 45px 30px;
+    }
+
+    .cuppiespage .wrapper-bubble-text {
+        transform: translate(50%, -50%);
+        top: 77%;
+        right: 50%;
+    }
+
+    .bubble-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .bubble-text .featured-name {
+        width: max-content;
+        font-size: 1.7rem;
+    }
+
+    .cuppiespage .header-text .detail .title {
+        font-size: 3rem;
+    }
+
+    .cuppiespage .header-text .detail .desc {
+        font-size: 1.3rem;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .cuppiespage {
+        --_global-padding: 10px;
+    }
+    
+    .bubble-text {
+        display: block;
+    }
+
+    .bubble-text .featured-name {
+        font-size: 1.5rem;
+    }
+
+    .bubble-text .featured-price {
+        font-size: 2rem;
+    }
+
+    .bubble-action {
+        font-size: 1.3rem;
+        width: max-content;
+    }
+
+    .cuppiespage .wrapper-bubble-list .item {
+        font-size: 1.2rem;
+    }
+
+    .cuppiespage article.category-container {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .cuppiespage .header-text .detail .title {
+        text-align: center;
+    }
+
+    .cuppiespage .header-text .detail .desc {
+        font-size: 1.1rem;
+        width: 100%;
+    }
+
+    .cuppiespage .header-text .category {
+        margin: 35px 0;
+    }
+
+    .cuppiespage .header-text .category h1 {
+        font-size: 1.7rem;
+    }
+
+    .cuppiespage .header-text .category h1::before {
+        border-radius: 4px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .cuppiespage .header-text .category h1.active::before {
+        height: 45px;
+    }
+
+    .cuppiespage .header-text .category h1:hover::before {
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cuppiespage .article.category-container {
+        grid-gap: 0px;
+    }
+
+    .cuppiespage .header-text .category h1 {
+        font-size: 1.3rem;
+    }
+
+    .cuppiespage .header-text .category h1::before {
+        border-radius: 2px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .cuppiespage .header-text .category h1.active::before {
+        height: 45px;
+    }
+
+    .cuppiespage .header-text .category h1:hover::before {
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 450px) and (max-height: 750px) {
+    .cuppiespage .featured-item {
+        top: 30%;
+    }
+
+    .featured-bubble .bubble-item {
+        width: 60px;
+        height: 60px;
+    }
+
+    .featured-bubble img {
+        object-position: 0 -10px;
+    }
+
+    .cuppiespage .wrapper-bubble-text {
+        top: 74%;
+    }
+
+    .bubble-text {
+        padding: 24px 27px 27px;
+    }
+
+    .bubble-text .featured-name {
+        font-size: 1.5rem;
+    }
+
+    .bubble-text .featured-price {
+        display: none;
+    }
+
+    .bubble-action {
+        font-size: 1.2rem;
+        width: max-content;
+    }
+}

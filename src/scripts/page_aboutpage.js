@@ -73,7 +73,7 @@ const aboutpage = function () {
 
         // Add text to title
         title.innerHTML =
-            'A <span class="brand-name">Cuppy</span>  Knowledge !';
+            'A <span class="brand-name">Cuppy</span>  Knowledge!';
         
         // Add attribute(s) and class(es) to title
         title.classList.add('title');

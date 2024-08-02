@@ -1,0 +1,24 @@
+@media screen and (max-width: 530px) {
+    footer .disclaimer {
+        font-size: 1.5rem;
+    }
+
+    footer .disclaimer-text {
+        font-size: 1rem;
+    }
+
+    footer .disclaimer-text span {
+        background-color: transparent;
+        border: none;
+        font-size: 1.3rem;
+        text-shadow: 1px 1px $dark-text_color;
+    }
+
+    footer .disclaimer-text span::after {
+        font-size: 0.2rem;
+    }
+
+    footer .copyright-author {
+        font-size: 1rem;
+    }
+}

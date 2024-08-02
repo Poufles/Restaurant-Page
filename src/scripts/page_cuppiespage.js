@@ -50,7 +50,6 @@ function createHero() {
     const topContainer = document.createElement('div');
     const logoButton = document.createElement('button');
     const featuredContainer = document.createElement('div');
-    const featuredTitle = document.createElement('p');
     const featuredButtonContainer = document.createElement('div');
     const bubbleListContainer = document.createElement('div');
     const bubbleList = document.createElement('ul');
@@ -132,14 +131,7 @@ function createHero() {
     // Add attribute(s) and class(es) to the featured bubble container
     featuredButtonContainer.classList.add('featured-bubble');
 
-    // Add text for featured title
-    featuredTitle.textContent = 'Featured Cuppies';
-
-    // Add attribute(s) and class(es) to featured title
-    featuredTitle.classList.add('featured-title');
-
     // Append featured items to its container
-    featuredContainer.appendChild(featuredTitle);
     featuredContainer.appendChild(featuredButtonContainer);
 
     // Add attribute(s) and class(es) to featured container

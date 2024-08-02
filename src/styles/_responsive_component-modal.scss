@@ -1,0 +1,42 @@
+@media screen and (max-width: 650px) {
+    dialog {
+        margin: 0;
+        padding: 0;
+        overflow:visible;
+    }
+    
+    .dialog-container {
+        border-radius: 0;
+        width: 100dvw;
+        height: 100dvh;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .dialog-container .item-action .add-to-cart {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .dialog-container .item-name {
+        width: 270px;
+    }
+
+    .dialog-container .item-action {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px
+    }
+
+    .dialog-container .item-action button {
+        width: 100% !important;
+    }
+
+    .dialog-container .option {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: center;
+    }
+}

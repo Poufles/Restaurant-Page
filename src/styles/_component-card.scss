@@ -71,6 +71,8 @@
 .card .product-rating svg {
     stroke: #FFFAF1;
     stroke-width: 2px;
+    display: flex;
+    align-items: center;
 }
 
 .card .product-desc {

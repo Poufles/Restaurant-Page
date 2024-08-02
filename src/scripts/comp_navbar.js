@@ -6,7 +6,7 @@ import aboutpage from './page_aboutpage.js';
 import { createHomeSVG, createCoffeeSVG, createInfoSVG } from './createSVG.js';
 
 const navbar = function () {
-    let navbar;
+    let navbar = document.createElement('header');
 
     let backdrop = document.createElement('div');
     backdrop.classList.add('nav-backdrop');
@@ -191,26 +191,6 @@ const navbar = function () {
         getBackdrop,
     };
 }();
-
-function pagesSwitch(newPage, oldPage) {
-    if (document.querySelector(`.${newPage}`) === null) {
-        const buttons = document.querySelectorAll('.comp_nav .pages li');
-
-        buttons.forEach(button => {
-            button.classList.remove('hide');
-        });
-
-        setTimeout(() => {
-            loading.playAnimation()
-            setTimeout(() => {
-                positionComponent('nav-bm');
-                oldPage.removePage();
-                newPage.createPage();
-            }, 2000);
-        }, 300);
-    };
-};
-
 
 
 

@@ -259,7 +259,6 @@ function orderButton() {
     orderButton.addEventListener('mouseup', () => {
         loading.playAnimation();
         setTimeout(() => {
-            navbar.positionComponent('nav-br');
             homepage.removePage();
             cuppiespage.createPage();
 

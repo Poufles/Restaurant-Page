@@ -15,7 +15,7 @@ import { productData as pd, Product } from './products.js';
 window.addEventListener('load', () => {
     loading.createComponent();
     loading.playAnimation();
-    
+
     setTimeout(() => {
         homepage.createPage();
         navbar.createComponent();
@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
 
     // Get images
     const img = images.getImages();
-   
+
     // Cuppyccino
     const c1 = Product(img[0], 'Cuppyccino', 'Caramelized Chilly Cuppyccino', 5.99, 'desc');
     const c2 = Product(img[1], 'Cuppyccino', 'Amer-Doux Cuppyccino', 5.99, 'desc');
@@ -79,4 +79,18 @@ window.addEventListener('load', () => {
     for (let iter = 0; iter < coffeeArr.length; ++iter) {
         pd.addProduct(coffeeArr[iter].getProduct());
     }
+});
+
+// Check if user has reached the bottom of the screen
+window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    const offset = d.scrollTop + window.innerHeight;
+    const height = d.offsetHeight * 0.95;
+    const nav = navbar.getNavbar();
+
+    if (offset >= height) {
+        nav.classList.add('nav-hide-animation');
+    } else {
+        nav.classList.remove('nav-hide-animation');
+    };
 });
